@@ -1,60 +1,53 @@
 <?php
+session_start();
 
-// Generamos una imagen con un patrón giratorio
-$image = imagecreatetruecolor(200, 100);
+// Cargar la imagen de fondo
+$background_image = imagecreatefromjpeg('pattern2.jpg');
 
-// Rellenamos el fondo de la imagen
-$color = imagecolorallocate($image, 255, 255, 255);
-imagefill($image, 0, 0, $color);
+// Crear una imagen en blanco del mismo tamaño que la imagen de fondo
+$image = imagecreatetruecolor(imagesx($background_image), imagesy($background_image));
 
-// Generamos el patrón giratorio
-$patron = array_fill(0, 100, 1);
+// Copiar la imagen de fondo en la imagen en blanco
+imagecopy($image, $background_image, 0, 0, 0, 0, imagesx($background_image), imagesy($background_image));
 
-// Giramos el patrón
-$angle = rand(-90, 90);
-imagerotate($image, $angle, 0);
+// Crear un color blanco para el texto
+$text_color = imagecolorallocate($image, 0, 0, 255);
 
-// Almacenamos la respuesta correcta
-$respuesta = $patron;
+// Generar un texto aleatorio
+$random_text = substr(md5(rand()), 0, 5);
 
-// Guardamos la imagen
-imagejpeg($image, 'captcha.jpg');
+// Almacenar el texto en la sesión para su verificación posterior
+$_SESSION['captcha'] = $random_text;
 
-// Liberamos la memoria
-imagedestroy($image);
+// Definir el tamaño de la fuente más grande
+$font_size = 25;
 
-// Eventos
+// Definir la posición inicial de la primera letra
+$x_position = 1;
 
-// Evento de clic en el botón "Girar"
-function girar($image) {
-  // Obtenemos el ángulo de rotación
-  $angle = rand(-90, 90);
-
-  // Giramos la imagen
-  imagerotate($image, $angle, 0);
-
-  // Actualizamos la imagen
-  echo '<img src="captcha.jpg" alt="Captcha giratorio">';
+// Incluir cada letra con una inclinación diferente
+for ($i = 0; $i < strlen($random_text); $i++) {
+    $angle = rand(-10, 10); // Ángulo único para cada letra
+    $char = $random_text[$i];
+    $y_position = 45 + rand(-5, 5); // Posición vertical aleatoria para cada letra
+    imagettftext($image, $font_size, $angle, $x_position, $y_position, $text_color, 'fonts/arial.ttf', $char);
+    $x_position += imagefontwidth($font_size) + 20  ; // Ajustar la posición para la siguiente letra
 }
 
-// Inicializamos el evento
+// Distorsionar la imagen
+$distortion_amount = 5;
+imagefilter($image, IMG_FILTER_SMOOTH, 5);
+imagefilter($image, IMG_FILTER_CONTRAST, -20);
 
+// Rotar la imagen en su conjunto
+$angle = rand(-10, 10);
+$image = imagerotate($image, 0, 0);
+
+// Mostrar la imagen en el navegador
+header("Content-type: image/png");
+imagepng($image);
+
+// Liberar recursos
+imagedestroy($background_image);
+imagedestroy($image);
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Captcha giratorio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <img src="captcha.jpg" alt="Captcha giratorio">
-    <button type="button" id="girar">Girar</button>
-  </div>
-  <script>
-        document.getElementById('girar').onclick = girar;
-    </script>
-</body>
-</html>
