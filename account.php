@@ -27,7 +27,7 @@ include "login2.php";
 <h1 id="namePage" class="text-center m-5">Hello, <?php if(!empty($_SESSION["user"])) echo $_SESSION["user"] ?>!</h1>
 
 <h2>Name: <strong><?php if(!empty($_SESSION["uname"])) echo $_SESSION["uname"] ?></strong></h2>
-<h2>Account name: <strong><?php if(!empty($_SESSION["user"])) echo $_SESSION["user"] ?></strong></h2>
+<h2>Account Name: <strong><?php if(!empty($_SESSION["user"])) echo $_SESSION["user"] ?></strong></h2>
 <h2>Email: <strong><?php if(!empty($_SESSION["uemail"])) echo $_SESSION["uemail"] ?></strong></h2>
 
 
