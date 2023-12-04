@@ -32,9 +32,9 @@
                             Database
                         </a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a class="dropdown-item text-white" href="store.php">Create</a></li>
-                            <li><a class="dropdown-item text-white" href="vinyl.php">Update</a></li>
-                            <li><a class="dropdown-item text-white" href="cd.php">Delete</a></li>
+                            <li><a class="dropdown-item text-white" href="altas.php">Create</a></li>
+                            <li><a class="dropdown-item text-white" href="cambios.php">Update</a></li>
+                            <li><a class="dropdown-item text-white" href="bajas.php">Delete</a></li>
                         </ul>
                     </li>
 
@@ -56,7 +56,7 @@
               if(!empty($_SESSION["user"])) {
             ?>
                 <a href="account.php">
-                    <button type="button" class="btn text-white btn-custom idk">
+                    <button type="button" class="border-0 btn text-white btn-custom idk">
             
                     <?php
                     if (isset($_SESSION["user"])){
@@ -67,7 +67,7 @@
                     </button>
                 </a>
                 <a href="#cart">
-                    <button type="button" class="btn text-white btn-custom">
+                    <button type="button" class="border-0 btn text-white btn-custom">
                     <i class="fa-solid fa-cart-shopping"></i> ( 0 )
                     </button>
                 </a>

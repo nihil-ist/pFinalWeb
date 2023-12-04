@@ -92,18 +92,18 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
                 <h4 class="card-text mb-4 mt-4">Format: <strong><?php echo $category ?></strong></h4>
                 <hr>
                 <?php if($discount==0){ ?>
-                <h1 class="card-text mb-4"><span class="fs-3">Price:</span> $<?php echo $price ?></h1>
+                <h1 class="card-text mb-4"><span class="fs-3">Price:</span> <strong>$<?php echo $price ?></strong></h1>
                 <?php } else { 
                 $newdiscount = $discount*0.01;
                 $newprice =  $price-($price*$newdiscount);
                 ?>
                 <h3>%<?php echo $discount ?> Off</h3>
-                <h1 class="card-text mb-4"><span class="fs-3">Price:</span> <span class="text-decoration-line-through">$<?php echo $price ?></span> <span>$<?php echo $newprice ?></span></h1>
+                <h1 class="card-text mb-4"><span class="fs-3">Price:</span> <span class="text-decoration-line-through">$<?php echo $price ?></span> <strong><span>$<?php echo $newprice ?></span></strong></h1>
                 <?php } ?>
                 <?php if($stock>0 && $stock<=5){ ?>
-                <h3 class="card-text mb-4">Only <?php echo $stock ?> left in stock</h3>
+                <h3 class="card-text mb-4">Only <strong><?php echo $stock ?></strong> left in stock</h3>
                 <?php } else if($stock>0) {?>
-                <h3 class="card-text mb-4"><?php echo $stock ?> left in stock</h3>
+                <h3 class="card-text mb-4"><strong><?php echo $stock ?></strong> left in stock</h3>
                 <?php } else {?>
                 <h3 class="card-text mb-4">Out of stock</h3>
                 <?php } ?>
@@ -115,13 +115,16 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
 
     </div>
     <div style="opacity: 0.90 !important;">
-    <form action="" >
+    <a href="#addToCart">
+        <!-- <form> -->
         <?php if($stock>0){ ?>
         <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100">
         <?php } else {?>
         <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100" disabled>
         <?php } ?>    
-    </form>
+         <!-- </form> -->
+    </a>
+    
     </div>
     
     </div>

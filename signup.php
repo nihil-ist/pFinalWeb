@@ -39,14 +39,14 @@ include "login2.php";
     </div>
     <div class="form-outline form-floating mb-4">
         <input type="text" id="pregunta" name="pregunta" class="text-white form-control bg-transparent" placeholder="pregunta" required>
-        <label for="pregunta" class="form-label text-white bg-transparent">What is your favorite artist?</label>
+        <label for="pregunta" class="form-label text-white bg-transparent">What is your favorite artist? (Security Question)</label>
     </div>
     <div class="form-outline form-floating mb-4">
         <input type="password" id="password" name="password" class="text-white form-control bg-transparent" placeholder="password" required>
         <label for="password" class="form-label text-white bg-transparent">Password</label>
     </div>
     <div class="form-outline form-floating mb-4">
-        <input type="repetir_password" id="repetir_password" name="repetir_password" class="text-white form-control bg-transparent" placeholder="repetir_password" required>
+        <input type="password" id="repetir_password" name="repetir_password" class="text-white form-control bg-transparent" placeholder="repetir_password" required>
         <label for="repetir_password" class="form-label text-white bg-transparent">Repeat Password</label>
     </div>
 

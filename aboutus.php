@@ -26,7 +26,7 @@ include "login2.php";
 <br><br>
     <fieldset class="d-flex justify-content-center">
     <!-- ¿Quienes somos? -->
-        <div class="card text-bg-dark" style="height: 30rem;">
+        <div class="card zoom text-bg-dark" style="height: 30rem;">
             <img src="images/fondo2.png" class="card-img" alt="...">
             <div class="card-img-overlay">
                 <h1 class="card-title mt-5 text-black fw-bold">About us</h1>
@@ -42,11 +42,11 @@ include "login2.php";
     <br><br>
 
     <!-- Mision y Vision -->
-    <fieldset class="mvo">
+    <div class="mvo d-flex justify-content-center">
         <!-- Mision -->
         <div>
             <p class="fs-2 text-center fw-bold">Mision</p>
-            <div class="card bg-primary text-white" style="width: 25rem;">
+            <div class="card mx-5 zoom bg-primary text-white" style="width: 25rem;">
                 <img src="images/album2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                 <p class="card-text">To provide access to and dissemination of quality music, promoting cultural and artistic diversity, providing our customers with a wide selection of albums and services tailored to their preferences, turning the shopping experience into an exciting and enriching journey.</p>
@@ -57,14 +57,14 @@ include "login2.php";
         <!-- Vision -->
         <div>
             <p class="fs-2 text-center fw-bold">Vision</p>
-            <div class="card bg-primary text-white" style="width: 25rem;">
+            <div class="card mx-5 zoom bg-primary text-white" style="width: 25rem;">
                 <img src="images/album3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                 <p class="card-text">To be the leading music and album sales platform recognized worldwide, offering a unique and diverse experience for music lovers, connecting artists with their fans through a wide range of genres, formats and innovative services.</p>
                 </div>
             </div>
         </div>
-    </fieldset>
+</div>
 
     <br><br>
 
@@ -72,7 +72,7 @@ include "login2.php";
 <fieldset class="obj">
     <div>
         <p class="fs-2 text-center fw-bold">Objectives</p>
-    <div class="card bg-primary" style="width: 60rem;">
+    <div class="card zoom bg-primary" style="width: 60rem;">
     <ul class="list-group bg-primary list-group-flush">
         <li class="list-group-item text-white bg-primary">
             <strong>Offer a wide variety of music.</strong>
@@ -116,7 +116,7 @@ include "login2.php";
     <div class="idk">
     <div class="m-5 content d-flex flex-column align-items-center justify-content-center flex-grow-1">
 <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center">
-  <div class="card m-5 bg-success text-white">
+  <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/johan.jpg" class="mt-2 card-img-top" width="50" alt="johan">
     <div class="card-body">
       <h5 class="card-title">Johan Jose Maria Renteria Zaragoza</h5>
@@ -131,7 +131,7 @@ include "login2.php";
     </div>
     
   </div>
-  <div class="card m-5 bg-success text-white">
+  <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/alet.jpg" class="mt-2 card-img-top" width="50" alt="alex">
     <div class="card-body">
       <h5 class="card-title">Alejandro Lopez Ruiz</h5>
@@ -146,7 +146,7 @@ include "login2.php";
     </div>
     
   </div>
-  <div class="card m-5 bg-success text-white">
+  <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/ro.jpg" class="mt-2 card-img-top" width="50" alt="rodolfo">
     <div class="card-body">
       <h5 class="card-title">Rodolfo Puente Zúñiga</h5>
@@ -159,7 +159,7 @@ include "login2.php";
     </div>
     
   </div>
-  <div class="card  m-5 bg-success text-white">
+  <div class="card zoom  m-5 bg-success text-white">
     <img src="images/members/ivan.jpg" class="mt-2 card-img-top" width="50" alt="ivan">
     <div class="card-body">
       <h5 class="card-title">Angel Ivan Reyes Hernandez</h5>
@@ -174,7 +174,7 @@ include "login2.php";
     </div>
     
   </div>
-  <div class="card  m-5 bg-success text-white">
+  <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/aaron.png" class="mt-2 card-img-top" width="50" alt="aaron">
     <div class="card-body">
       <h5 class="card-title">Aaron Ruiz Fonseca</h5>
@@ -189,7 +189,7 @@ include "login2.php";
     </div>
     
   </div>
-  <div class="card m-5 bg-success text-white">
+  <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/diego.jpg" class="mt-2 card-img-top" width="50" alt="diego">
     <div class="card-body">
       <h5 class="card-title">Diego Zamora Delgadillo</h5>

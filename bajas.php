@@ -1,3 +1,8 @@
+<?php
+
+include "login2.php";
+
+?>  
 <!DOCTYPE html>	
 <html lang="en">
 <head>
@@ -5,11 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bajas - Haven Records</title>
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
-    <link href="css/main.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    <style>
-        td, th{
+    <style>
+    td, th{
             padding: 10px;
         }
         body {
@@ -25,13 +33,14 @@
         }
     </style>
 </head>
-<body class="bg-dark text-white">
+<body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 
 <?php include "navbar.php"?>
+<div class="bg-dark shadow-lg text-center m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 
 <div class="content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <?php
-    $servidor= 'localhost:33066';
+    $servidor= 'localhost:33065';
     $cuenta='root';
     $password='';
     $bd= 'havenrecords';
@@ -54,7 +63,7 @@
     }
 ?>
 <div class="m-5 text-center">
-    <h1 class="title mb-5">Bajas</h1>
+    <h1 class="title mb-5">Delete</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <?php
         $conexion =mysqli_connect($servidor,$cuenta,$password,$bd);
@@ -66,10 +75,10 @@
             echo "<table class='shadow-lg table table-striped table-dark' style='text-align:center;'><tr>";
             while ($fieldinfo = $result_data->fetch_field()) {
                 if ($bandera === false){
-                    echo "<th>Eliminar</th>";
+                    echo "<th class='align-middle'>Delete</th>";
                     $bandera = true;
                 }
-                echo "<th>" . $fieldinfo->name . "</th>";
+                echo "<th class='align-middle'>" . $fieldinfo->name . "</th>";
             }
             echo "</tr>";
             $bandera = false;
@@ -77,11 +86,14 @@
                 echo "<tr>";
                 foreach ($row as $value) {
                     if ($bandera === false){
-                        echo "<td><input class='form-check-input' type='checkbox' name='cEliminar[]' value=$value onchange='checkSubmitButton()'/></td>";
+                        echo "<td class='align-middle'><input class='form-check-input' type='checkbox' name='cEliminar[]' value=$value onchange='checkSubmitButton()'/></td>";
                         $bandera = true;
                     }
-                    echo "<td>" . $value . "</td>";
-                }
+                    if (substr($value, -4) === ".jpg" or substr($value, -4) === ".png" or substr($value, -5) === ".jpeg"){
+                        echo "<td class='align-middle'> <img src='img/$value' width='100' alt='$value'></td>";
+                    }else{
+                        echo "<td class='align-middle'>" . $value . "</td>";
+                    }                 }
                 $bandera = false;
                 echo "</tr>";
             }
@@ -110,8 +122,12 @@
         </script>
 </div>
 </div>
+</div>
 
 <?php include "footer.php"?>
 
+<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

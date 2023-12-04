@@ -41,7 +41,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Confirmation of message received';
-    $mail->Body    = "<p>Howdy, $name !</p>
+    $mail->Body    = "<p>Howdy, $name!</p>
                     <p>We have received confirmation that you have sent us a message to contact us at our <strong>Haven Records store</strong>, a store specialized in the sale of musical products such as vinyls and CD's of your favorite albums and other products. Be patient, listen to your favorite album and we will give you an answer from our team.</p>
                     <p>This is your peticion you send us:</p>
                     <p>$msg</p>

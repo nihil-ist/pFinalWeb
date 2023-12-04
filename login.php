@@ -31,8 +31,16 @@ include "login2.php";
 </div>
 
 <div class="form-outline bg-transparent form-floating mb-4">
-    <input type="text" id="form2Example2" name="password" value="<?php if(isset($_COOKIE["password"])){ echo $_COOKIE["password"]; } ?>" class="text-white form-control bg-transparent" placeholder="password" required>
+    <input type="password" id="form2Example2" name="password" value="<?php if(isset($_COOKIE["password"])){ echo $_COOKIE["password"]; } ?>" class="text-white form-control bg-transparent" placeholder="password" required>
     <label class="form-label text-white bg-transparent" for="form2Example2">Password</label>
+</div>
+
+
+
+<div class="d-flex form-outline bg-transparent  mb-4">
+    
+    <input type="text" id="captcha" name="captcha" class="m-5 ms-0 text-white form-control bg-transparent" placeholder="Enter the text displayed" required>
+    <img src="captcha.php" width="300">
 </div>
 
 <div class="form-check mb-4">
@@ -44,7 +52,7 @@ include "login2.php";
 
 <input type="hidden" name="form_name" value="login">
 
-<div class="text-center">
+<div class="text-center mb-4">
     <button type="submit"  class="btn btn-primary text-white mb-4 fs-5">Log in</button>
 </div>
 

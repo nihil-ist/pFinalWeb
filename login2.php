@@ -49,7 +49,9 @@ if (!empty($_POST['signout'])) {
         $band =0;
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                if($user == $row["cuenta"] && password_verify($password, $row["contrasena"]) && $row["bloqueado"]!=1){
+                if($user == $row["cuenta"] && password_verify($password, $row["contrasena"]) && $row["bloqueado"]!=1 && (isset($_POST['captcha']) && $_POST['captcha'] === $_SESSION['captcha'])){
+
+                    unset($_SESSION['captcha']);
                     $band = 1;
                     $attempts = $row["intentos"];
                     if(!empty($_POST["remember"])){
