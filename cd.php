@@ -1,4 +1,7 @@
 <?php
+
+include "login2.php";
+
 $servername = "localhost:33065";
 $username = "root";
 $bd = "havenrecords";
@@ -18,6 +21,8 @@ if ($conn->connect_error) {
     <title>CDs - Haven Records</title>
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
     <style>
         .card {
             transition: background-color 0.2s ease !important;
@@ -37,7 +42,9 @@ if ($conn->connect_error) {
 </head>
 <body class="bg-dark text-white">
 
-<h1 id="namePage" class="text-center mt-5">CDs</h1>
+  <?php include "navbar.php" ?>
+
+  <h1 id="namePage" class="text-center mt-5">CDs</h1>
 
     <div class="m-5" id="main-container">
     <?php 
@@ -45,20 +52,13 @@ if ($conn->connect_error) {
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
-      // Contador para las tarjetas
-      $cardCount = 0;
-    
-      // Imprimir datos de cada fila
+      echo "<div id='card-container' class=\"\">";
+      echo "<div class=\"row justify-content-center\">";
       while($row = $result->fetch_assoc()) {
-        // Si es la primera tarjeta de la fila
-        if ($cardCount % 4 == 0) {
-            echo "<div id='card-container' class=\"row mb-5\">";
-        }
-        
-        echo "<div class=\"col-md-3\">";
+        echo "<div class=\"col-xxl-3 col-xl-4 col-md-5 text-center mx-auto\">";
         echo "<form action='product.php' method='post'><button style='background: none; color: inherit; border: none;' type='submit'>";
-        echo "<div class=\"card bg-dark border-0 text-white\" style=\"width: 18rem;\">";
-        echo "<img src=\"img/" . $row["imagen"] . ".jpg\" class=\"card-img-top\" alt=\"". $row["nombreProducto"] ."\">";
+        echo "<div class=\"card zoom mb-5 bg-dark mx-auto border-0 text-white\" style=\"width: 18rem;\">";
+        echo "<img src=\"img/" . $row["imagen"] . ".jpg\" class=\"shadow-lg card-img-top\" alt=\"". $row["nombreProducto"] ."\">";
         echo "<div class=\"card-body\">";
         echo "<h5 class=\"card-title text-center\">" . $row["nombreProducto"] . "</h5>";
         echo "<p class=\"card-text text-center\">by " . $row["artista"] . "</p>";
@@ -72,27 +72,19 @@ if ($conn->connect_error) {
         if($row["existencias"]<=0){
             echo "<p class=\"card-text text-center fs-6\">Out of stock</p>";
         }
-        //echo "<div class=\"text-center\"><a href=\"#\" class=\"btn btn-primary\">Comprar</a></div>";
-        echo "</div>";
         echo "</div>";
         echo "</div>";
         echo "<input type='hidden' name='id' value='" . $row["idProducto"] . "'>";
         echo "<input type='hidden' name='page' value='CDs'>";
         echo "<input type='hidden' name='file' value='cd.php'>";
         echo "</button></form>";
-    
-        // Si es la última tarjeta de la fila
-        if ($cardCount % 4 == 3) {
-          echo "</div>";
-        }
-    
-        $cardCount++;
-      }
-    
-      // Si la última fila no tiene 4 tarjetas
-      if ($cardCount % 4 != 0) {
         echo "</div>";
+
       }
+    
+      echo "</div>";
+      echo "</div>";
+
     } else {
       echo "0 resultados";
     }
@@ -100,6 +92,10 @@ if ($conn->connect_error) {
     ?>
     </div>
     
-
+    <?php include "footer.php" ?>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

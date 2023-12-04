@@ -1,0 +1,71 @@
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .footer {
+    margin-top: auto;
+  }
+  
+  .navbar-custom {
+    background: transparent;
+    transition: all 0.4s ease;
+  }
+
+  .navbar-custom.scrolled {
+    /* background-color: #6a5acd; */
+    background: rgba(106, 90, 205, 0.96);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    
+  }
+  a>img{
+    /* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
+    opacity: 0.6;
+  }
+
+  nav a>img{
+    /* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
+    opacity: 0.8;
+  }
+
+  a>img:hover{
+    opacity: 1;
+  }
+  .dropdown-menu > li > a:hover {
+    background-color: #6a5acd;
+    /* color: #fff !important;  */
+  }
+  footer a:hover{
+    text-decoration: underline !important;
+  }
+  div.zoom:hover {
+    transform: scale(1.02);
+    transition: transform .2s;
+  }
+  .zoom img{
+    opacity: 0.9;
+  }
+  .zoom:hover img{
+    opacity: 1;
+  }
+
+  img.zoom{
+    opacity: 0.90;
+  }
+
+  img.zoom:hover{
+    opacity: 1;
+  }
+  
+  #namePage{
+    font-size: 5em;
+}
+
+  
+  .form-label::after{
+    background-color: transparent !important;
+
+  }
