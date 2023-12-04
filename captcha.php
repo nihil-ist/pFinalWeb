@@ -2,7 +2,7 @@
 session_start();
 
 // Cargar la imagen de fondo
-$background_image = imagecreatefromjpeg('pattern2.jpg');
+$background_image = imagecreatefromjpeg('images/pattern2.jpg');
 
 // Crear una imagen en blanco del mismo tamaño que la imagen de fondo
 $image = imagecreatetruecolor(imagesx($background_image), imagesy($background_image));
