@@ -1,0 +1,14 @@
+.mvo{
+    display: flex;
+    justify-content: space-around;
+
+    padding-block: 20px;
+}
+
+.obj{
+    padding-block: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
