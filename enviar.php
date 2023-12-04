@@ -20,7 +20,7 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->SMTPDebug = 0;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -42,7 +42,6 @@ try {
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Confirmation of message received';
     $mail->Body    = "<p>Howdy, $name !</p>
-                    <br>
                     <p>We have received confirmation that you have sent us a message to contact us at our <strong>Haven Records store</strong>, a store specialized in the sale of musical products such as vinyls and CD's of your favorite albums and other products. Be patient, listen to your favorite album and we will give you an answer from our team.</p>
                     <p>This is your peticion you send us:</p>
                     <p>$msg</p>
@@ -53,6 +52,8 @@ try {
     
     $mail->send();
     echo 'Message has been sent';
+    echo '<br> <br> <br>';
+    echo '<a href="index.php">Comeback to main menu</a>';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
