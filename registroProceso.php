@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salt = uniqid(mt_rand(), true);
 
     // El hash a la salt
-    $hashed_password = password_hash($password . $salt, PASSWORD_BCRYPT);
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $host = "localhost";
+    $host = "localhost:33065";
     $usuario_bd = "root";
     $contraseña_bd = "";
-    $nombre_bd = "infoo";
+    $nombre_bd = "havenrecords";
 
     $conexion = new mysqli($host, $usuario_bd, $contraseña_bd, $nombre_bd);
 
@@ -23,13 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error de conexión a la base de datos: " . $conexion->connect_error);
     }
 
-    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, cuenta, email, pregunta, hashed_password, salt) VALUES (?, ?, ?, ?, ?, ?)");
+    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, cuenta, email, preguntaSeguridad, contrasena) VALUES (?, ?, ?, ?, ?)");
 
-    $consulta->bind_param("ssssss", $nombre, $cuenta, $email, $pregunta, $hashed_password, $salt);
+    $consulta->bind_param("sssss", $nombre, $cuenta, $email, $pregunta, $hashed_password);
     $resultado = $consulta->execute();
 
     if ($resultado) {
-        echo "Registro exitoso. ¡Bienvenido, $nombre!";
+        header("Location: login.php");
     } else {
         echo "Error al registrar el usuario: " . $conexion->error;
     }

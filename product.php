@@ -69,18 +69,18 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
         }
     </style>
 </head>
-<body class="bg-dark text-white">
+<body class="text-white" style="background-image: url('assets/mcatis3.jpg'); background-size: cover;">
     
     <?php include "navbar.php" ?>
 
-    <div class="m-5" id="main-product">
+    <div class="m-5"id="main-product">
 
     <a class="text-decoration-none text-white link" href="<?php echo $file ?>"><br><br><br><h3 class="mb-5"><i class="fa-solid fa-chevron-left fa-2xs"></i> Back to <?php echo $page ?></h3></a>
 
-    <div class="card bg-dark border-0 text-white mb-3">
+    <div class="card  bg-dark border-5 border-dark text-white mb-3" style="border-width: 20px !important; opacity: 0.85 !important;">
         <div class="row g-0">
             <div class="col-md-4">
-            <img src="<?php echo "img/".$image.".jpg" ?>" class="zoom img-fluid rounded-2 shadow-lg" width="100%">
+            <img src="<?php echo "img/".$image ?>" class="zoom img-fluid rounded-2 shadow-lg" width="100%">
             </div>
             <div class="col-md-8">
             <div class="card-body mx-5">
@@ -108,18 +108,22 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
                 <h3 class="card-text mb-4">Out of stock</h3>
                 <?php } ?>
                 <hr>
-                <p class="card-text fs-4"><?php echo $description ?></p>
             </div>
             </div>
         </div>
+        <p class="card-text m-5 fs-4"><?php echo $description ?></p>
+
     </div>
-    <form action="">
+    <div style="opacity: 0.90 !important;">
+    <form action="" >
         <?php if($stock>0){ ?>
         <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100">
         <?php } else {?>
         <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100" disabled>
         <?php } ?>    
     </form>
+    </div>
+    
     </div>
 
     <?php include "footer.php" ?>

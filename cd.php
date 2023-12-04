@@ -40,25 +40,28 @@ if ($conn->connect_error) {
         }
     </style>
 </head>
-<body class="bg-dark text-white">
+<body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 
   <?php include "navbar.php" ?>
 
-  <h1 id="namePage" class="text-center mt-5">CDs</h1>
+<img src="assets/kida.jpg" class="shadow-lg border-bottom border-5 border-dark" width="100%" alt="">
+</div>
 
-    <div class="m-5" id="main-container">
+    <div class="m-5 bg-dark shadow-lg" style="opacity: 0.85 !important;" id="main-container">
+    <h1 id="namePage" class="text-center m-5" >CDs</h1>
+
     <?php 
     $sql = "SELECT * FROM productos WHERE categoria='CD'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
-      echo "<div id='card-container' class=\"\">";
+      echo "<div id='card-container' class=\"container\">";
       echo "<div class=\"row justify-content-center\">";
       while($row = $result->fetch_assoc()) {
         echo "<div class=\"col-xxl-3 col-xl-4 col-md-5 text-center mx-auto\">";
         echo "<form action='product.php' method='post'><button style='background: none; color: inherit; border: none;' type='submit'>";
         echo "<div class=\"card zoom mb-5 bg-dark mx-auto border-0 text-white\" style=\"width: 18rem;\">";
-        echo "<img src=\"img/" . $row["imagen"] . ".jpg\" class=\"shadow-lg card-img-top\" alt=\"". $row["nombreProducto"] ."\">";
+        echo "<img src=\"img/" . $row["imagen"] . "\" class=\"shadow-lg card-img-top\" alt=\"". $row["nombreProducto"] ."\">";
         echo "<div class=\"card-body\">";
         echo "<h5 class=\"card-title text-center\">" . $row["nombreProducto"] . "</h5>";
         echo "<p class=\"card-text text-center\">by " . $row["artista"] . "</p>";

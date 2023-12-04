@@ -50,9 +50,12 @@ if (empty($_SESSION["user"])) {
         unset($_POST['form_name']);
 
         if($password1==$password2){
+            $newpassword = password_hash($password1, PASSWORD_BCRYPT);
             $sql = "UPDATE usuarios SET bloqueado = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
             $result = $conn->query($sql);
-            $sql = "UPDATE usuarios SET contrasena = '$password1' WHERE cuenta = \"".$_SESSION['recover']."\"";
+            $sql = "UPDATE usuarios SET contrasena = '$newpassword' WHERE cuenta = \"".$_SESSION['recover']."\"";
+            $result = $conn->query($sql);
+            $sql = "UPDATE usuarios SET intentos = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
             $result = $conn->query($sql);
             header("Location: login.php");
         }
@@ -76,16 +79,18 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-dark text-white">
+<body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
+<?php include "navbar.php"; ?>
+
+<div class="bg-dark shadow-lg m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 
 <h1 id="namePage" class="text-center mt-5">Account Recovery</h1>
 
-<?php include "navbar.php"; ?>
 
-<?php if(!isset($_SESSION["recovered"])){ if($_SESSION!=1){?>
+<?php if(!isset($_SESSION["recovered"])){ ?>
 <form class="m-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 <div class="form-outline form-floating mb-4">
-    <input type="text" id="security" name="security" class="text-white form-control bg-transparent" placeholder="recoveryaccount">
+    <input type="text" id="security" name="security" class="text-white form-control bg-transparent" placeholder="recoveryaccount" required>
     <label class="form-label text-white bg-transparent" for="security">What is your favorite artist?</label>
 </div>
 
@@ -95,14 +100,14 @@ $conn->close();
     <button type="submit"  class="btn btn-primary text-white mb-4">Submit</button>
 </div>
 </form>
-<?php }} else {?>
+<?php } else {?>
     <form class="m-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <div class="form-outline form-floating mb-4">
-        <input type="password" id="newpassword" name="newpassword" class="text-white form-control bg-transparent" placeholder="changepassword">
+        <input type="password" id="newpassword" name="newpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
         <label class="form-label text-white bg-transparent" for="newpassword">New Password</label>
     </div>
     <div class="form-outline form-floating mb-4">
-        <input type="password" id="repeatpassword" name="repeatpassword" class="text-white form-control bg-transparent" placeholder="changepassword">
+        <input type="password" id="repeatpassword" name="repeatpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
         <label class="form-label text-white bg-transparent" for="repeatpassword">Repeat Password</label>
     </div>
     <input type="hidden" name="form_name" value="changepassword">
@@ -112,6 +117,7 @@ $conn->close();
     </div>
     </form>
 <?php } ?>
+</div>
 <?php include "footer.php" ?>
 
 <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>

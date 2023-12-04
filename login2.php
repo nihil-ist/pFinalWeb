@@ -25,6 +25,10 @@ if (!empty($_POST['signout'])) {
         );
     }
     $_SESSION["user"] = "";
+    unset($_SESSION["user"]);
+    unset($_SESSION["uemail"]);
+    unset($_SESSION["uname"]);
+    
     session_destroy();
     $_POST['signout'] = "";
 } else {
@@ -39,49 +43,62 @@ if (!empty($_POST['signout'])) {
 
         $sql = "SELECT * FROM usuarios";
         $result = $conn->query($sql);
-    
+        
+
+        $attempts = 0;
+        $band =0;
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                if($user == $row["cuenta"] && $password == $row["contrasena"] && $row["bloqueado"]!=1){
+                if($user == $row["cuenta"] && password_verify($password, $row["contrasena"]) && $row["bloqueado"]!=1){
                     $band = 1;
+                    $attempts = $row["intentos"];
                     if(!empty($_POST["remember"])){
                         setcookie("user", $user, time()+3600);
                         setcookie("password", $password, time()+ 3600);
-                        echo "cookies puestas";
                     } else {
                         setcookie("user","");
                         setcookie("password","");
-                        echo "cookies no";
                     }
+
+                    $_SESSION["uemail"] = $row["email"];
+                    $_SESSION["uname"] = $row["nombre"];
+
                     break;
                 }
-                if(($user == $row["cuenta"] && $password == $row["contrasena"] && $row["bloqueado"]==1) || ($user == $row["cuenta"] && $row["bloqueado"]==1)){
+                if(($user == $row["cuenta"] && password_verify($password, $row["contrasena"]) && $row["bloqueado"]==1) || ($user == $row["cuenta"] && $row["bloqueado"]==1)){
+                    $attempts = $row["intentos"];
                     $band = 3;
                     break;
                 }
                 if($user == $row["cuenta"]){
+                    $attempts = $row["intentos"];
                     $band = 2;
                     break;
                 }
+                $band = 0;
             }
         }
 
         if ($band == 1) { 
             $_SESSION["user"] = $user;
-            $_SESSION["attempts"]=0;
+            $sql = "UPDATE usuarios SET intentos=0 WHERE cuenta = '$user'";
+            $result = $conn->query($sql);
         } else if ($band == 2) {
-            if(empty($_SESSION["attempts"])){
-                $_SESSION["attempts"]=1;
-            } else {
-                $_SESSION["attempts"]++;
-            }
-            if($_SESSION["attempts"] >= 3){
+
+            $attempts++;
+            $sql = "UPDATE usuarios SET intentos=". $attempts ." WHERE cuenta = '$user'";
+            $result = $conn->query($sql);
+            if($attempts >= 3){
                 $sql = "UPDATE usuarios SET bloqueado=1 WHERE cuenta = '$user'";
+                $band = 5;
                 $result = $conn->query($sql);
+                $_SESSION["recovered"]=0;
+                if(isset($_SESSION["recovered"])) unset($_SESSION["recovered"]);
             }
-        } else if($band = 3){
+        } else if($band == 3){
             $_SESSION["recover"]=$user;
-            header("Location: recovery.php");
+            if(isset($_SESSION["recovered"])) unset($_SESSION["recovered"]);
+            $band = 5;
         }
 
     }
