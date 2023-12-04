@@ -39,7 +39,7 @@ include "login2.php";
         </div>
 
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="mt-3 btn btn-primary">Send</button>
         </div>
     </form>
 </div>

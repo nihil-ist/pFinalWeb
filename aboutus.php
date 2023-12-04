@@ -21,25 +21,19 @@ include "login2.php";
 </head>
 <body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 <?php include "navbar.php"; ?>
-<div class="bg-dark shadow-lg text-center m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
-
-<br><br>
-    <fieldset class="d-flex justify-content-center">
-    <!-- ¿Quienes somos? -->
-        <div class="card zoom text-bg-dark" style="height: 30rem;">
-            <img src="images/fondo2.png" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h1 class="card-title mt-5 text-black fw-bold">About us</h1>
-                <br><br>
-                <p class="card-text text-black fs-4 fw-bold text-justify">Haven Records is an online haven for music enthusiasts, collectors, and audiophiles passionate about the soulful sound of vinyl records. Established in 2021, Haven Records embarked on a mission to curate, preserve, and share the timeless appeal of vinyl music in the digital age.
+<div class="shadow-lg container-fluid p-0 cover shadow-lg border-bottom border-5 border-dark" style="background-image: url(assets/kida.jpg); background-size: cover;">
+    <div class="m-5">
+        <h1 id="slogan">&nbsp;About Us&nbsp;</h1>
+    </div>
+    <div class="m-5 mt-0">
+        <p class="p-2 card-text cover-text text-white fs-5 fw-bold text-justify"> Haven Records is an online haven for music enthusiasts, collectors, and audiophiles passionate about the soulful sound of vinyl records. Established in 2021, Haven Records embarked on a mission to curate, preserve, and share the timeless appeal of vinyl music in the digital age.
                                     Driven by a deep love for the rich, warm tones of vinyl and a commitment to exceptional quality, Haven Records is more than just an online store. It's a destination where music lovers discover rare gems, classic favorites, and new releases across various genres. With an extensive collection ranging from vintage classics to modern reissues, Haven Records caters to the diverse tastes of its discerning clientele.
                                     <br>
-                                    The store is more than a marketplace; it's a community hub where enthusiasts converge to share their love for music, exchange recommendations, and celebrate the magic of vinyl. Haven Records prides itself on offering not just a product but an experience—a journey through the melodies and memories encapsulated in every groove of a vinyl record
-            </div>
-        </div>
-    </fieldset>
-
-    <br><br>
+                                    The store is more than a marketplace; it's a community hub where enthusiasts converge to share their love for music, exchange recommendations, and celebrate the magic of vinyl. Haven Records prides itself on offering not just a product but an experience, a journey through the melodies and memories encapsulated in every groove of a vinyl record.
+             </p>
+    </div>
+</div>
+<div class="bg-dark p-5 shadow-lg text-center m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 
     <!-- Mision y Vision -->
     <div class="mvo d-flex justify-content-center">
@@ -114,7 +108,7 @@ include "login2.php";
     <!-- Team work -->
     <p class="fs-2 text-center fw-bold">Our team work</p>
     <div class="idk">
-    <div class="m-5 content d-flex flex-column align-items-center justify-content-center flex-grow-1">
+    <div class="m-5 mb-0 content d-flex flex-column align-items-center justify-content-center flex-grow-1">
 <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center">
   <div class="card zoom m-5 bg-success text-white">
     <img src="images/members/johan.jpg" class="mt-2 card-img-top" width="50" alt="johan">

@@ -26,9 +26,53 @@ function validarContraseña() {
     var repetirContraseña = document.getElementById("repetir_password").value;
 
     if (contraseña !== repetirContraseña) {
-        alert("Las contraseñas no coinciden. Por favor, inténtalo de nuevo.");
+        Swal.fire({
+            title: "Oh!",
+            text: "Password Doesn't Match!",
+            icon: "error"
+          });
         return false;
     }
-
     return true;
+}
+
+function validarContrasena2() {
+    var contraseña = document.getElementById("password").value;
+    var repetirContraseña = document.getElementById("repetir_password").value;
+
+    if (contraseña !== repetirContraseña) {
+        Swal.fire({
+            title: "Oh!",
+            text: "Password Doesn't Match!",
+            icon: "error"
+          });
+        return false;
+    }
+    return true;
+}
+
+function validarPregunta() {
+
+        Swal.fire({
+            title: "That Was Not The Correct Answer",
+            text: "Try Again!",
+            icon: "error"
+          });
+        return false;
+
+}
+
+function loginAlert(){
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+      });
 }

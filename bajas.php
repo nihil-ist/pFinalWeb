@@ -93,7 +93,8 @@ include "login2.php";
                         echo "<td class='align-middle'> <img src='img/$value' width='100' alt='$value'></td>";
                     }else{
                         echo "<td class='align-middle'>" . $value . "</td>";
-                    }                 }
+                    }                 
+                }
                 $bandera = false;
                 echo "</tr>";
             }

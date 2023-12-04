@@ -22,21 +22,19 @@ include "login2.php";
 </head>
 <body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 <?php include "navbar.php"; ?>
+<div class="shadow-lg container-fluid p-0 cover shadow-lg border-bottom border-5 border-dark" style="background-image: url(assets/kida.jpg); background-size: cover;">
+    <div class="m-5">
+        <h1 id="slogan">&nbsp;Help&nbsp;</h1>
+    </div>
+    <div class="m-5 mt-0">
+        <p class="p-2 card-text cover-text text-white fs-5 fw-bold text-justify"> Welcome to Haven Records! We're thrilled to provide you with an extensive collection of classic and contemporary vinyl records. As passionate curators of music, we understand that navigating the world of vinyl may raise some questions. To assist you in your vinyl journey and ensure a seamless shopping experience, we've compiled a list of frequently asked questions below. Whether you're new to vinyl or a seasoned collector, these answers aim to address common queries regarding orders, shipping, returns, and more. If you can't find the information you seek, don't hesitate to reach out to our dedicated support team. Let's dive in and explore the world of vinyl together! </p>
+    </div>
+</div>
 <div class="bg-dark shadow-lg text-center m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 <fieldset class="container" style="width: 71rem;">
         <br><br>
-        <!-- NEW -->
-        <div class="card d-flex justify-content-center text-bg-dark" style="height: 20rem;">
-            <div class="">
-            <img src="images/fondo4.png" class=" card-img" alt="...">
-            </div>
-            <div class="card-img-overlay">
-                <h1 class="card-title text-black fw-bold">Questions and Answers</h1>
-                <br>
-                <p class="card-text  text-black fs-5 fw-bold text-justify"> Welcome to Haven Records! We're thrilled to provide you with an extensive collection of classic and contemporary vinyl records. As passionate curators of music, we understand that navigating the world of vinyl may raise some questions. To assist you in your vinyl journey and ensure a seamless shopping experience, we've compiled a list of frequently asked questions below. Whether you're new to vinyl or a seasoned collector, these answers aim to address common queries regarding orders, shipping, returns, and more. If you can't find the information you seek, don't hesitate to reach out to our dedicated support team. Let's dive in and explore the world of vinyl together! </p>
-            </div>
-        </div>
-        <div class="mt-5 accordion bg-dark " id="accordionExample" style="width: 71rem;">
+        
+        <div class="m-5 accordion bg-dark " id="accordionExample" style="width: 71rem;">
             <div class="accordion-item bg-dark">
                 <h2 class="accordion-header">
                     <button class="accordion-button text-white bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

@@ -35,16 +35,17 @@ if ($conn->connect_error) {
 
     </style>
 </head>
-<body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
+<body class="text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 
   <?php include "navbar.php" ?>
 
-<img src="assets/kida.jpg" class="shadow-lg border-bottom border-5 border-dark" width="100%" alt="">
+  <div class="shadow-lg container-fluid p-0 cover shadow-lg border-bottom border-5 border-dark" style="background-image: url(assets/kidA.jpg); background-size: cover;">
+    <div class="mb-5">
+        <h1 id="slogan">&nbsp;All Products&nbsp;</h1>
+    </div>
 </div>
-
-    <div class="m-5 bg-dark shadow-lg" style="opacity: 0.85 !important;" id="main-container">
-    <h1 id="namePage" class="text-center m-5" >All Products</h1>
-
+    <div class="m-5 p-5 bg-dark shadow-lg" style="opacity: 0.85 !important;" id="main-container">
+    
     <?php 
     $sql = "SELECT * FROM productos";
     $result = $conn->query($sql);

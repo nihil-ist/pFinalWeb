@@ -41,7 +41,10 @@ if (empty($_SESSION["user"])) {
         if ($band == 1) { 
             $_SESSION["attempts"]=0;
             $_SESSION["recovered"]=1;
-        } 
+        }else{
+            $band = 6;
+        }
+
 
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['form_name'] == "changepassword") {
         $password1 = $_POST["newpassword"];
@@ -57,7 +60,6 @@ if (empty($_SESSION["user"])) {
             $result = $conn->query($sql);
             $sql = "UPDATE usuarios SET intentos = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
             $result = $conn->query($sql);
-            header("Location: login.php");
         }
 
     }
@@ -78,16 +80,23 @@ $conn->close();
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css"> -->
+
+
 </head>
 <body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
+
 <?php include "navbar.php"; ?>
 
 <div class="bg-dark shadow-lg m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 
 <h1 id="namePage" class="text-center mt-5">Account Recovery</h1>
+<?php if(!isset($_SESSION["recovered"])){ 
+?>
 
+<h2 class="text-center m-5">Answer Correctly the Question to Change Your Password</h2>
 
-<?php if(!isset($_SESSION["recovered"])){ ?>
 <form class="m-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 <div class="form-outline form-floating mb-4">
     <input type="text" id="security" name="security" class="text-white form-control bg-transparent" placeholder="recoveryaccount" required>
@@ -101,14 +110,15 @@ $conn->close();
 </div>
 </form>
 <?php } else {?>
-    <form class="m-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+    <h2 class="text-center m-5">Set a New Password</h2>
+    <form class="m-5" onsubmit="return validarContrasena2()" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" >
     <div class="form-outline form-floating mb-4">
-        <input type="password" id="newpassword" name="newpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
-        <label class="form-label text-white bg-transparent" for="newpassword">New Password</label>
+        <input type="password" id="password" name="newpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
+        <label class="form-label text-white bg-transparent" for="password">New Password</label>
     </div>
     <div class="form-outline form-floating mb-4">
-        <input type="password" id="repeatpassword" name="repeatpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
-        <label class="form-label text-white bg-transparent" for="repeatpassword">Repeat Password</label>
+        <input type="password" id="repetir_password" name="repeatpassword" class="text-white form-control bg-transparent" placeholder="changepassword" required>
+        <label class="form-label text-white bg-transparent" for="repetir_password">Repeat Password</label>
     </div>
     <input type="hidden" name="form_name" value="changepassword">
 
@@ -126,3 +136,14 @@ $conn->close();
 
 </body>
 </html>
+
+<?php
+if($band ==6){
+    ?>
+    <script type="text/javascript">
+validarPregunta();
+</script>        
+    <?php
+
+}
+?>

@@ -28,7 +28,8 @@ if (!empty($_POST['signout'])) {
     unset($_SESSION["user"]);
     unset($_SESSION["uemail"]);
     unset($_SESSION["uname"]);
-    
+    unset($_SESSION["newLogin"]);
+
     session_destroy();
     $_POST['signout'] = "";
 } else {
@@ -85,6 +86,7 @@ if (!empty($_POST['signout'])) {
             $_SESSION["user"] = $user;
             $sql = "UPDATE usuarios SET intentos=0 WHERE cuenta = '$user'";
             $result = $conn->query($sql);
+            $_SESSION["newLogin"] = true;
         } else if ($band == 2) {
 
             $attempts++;

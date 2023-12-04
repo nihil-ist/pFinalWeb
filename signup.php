@@ -16,6 +16,9 @@ include "login2.php";
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css">
+
 </head>
 <body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 <?php include "navbar.php"; ?>
