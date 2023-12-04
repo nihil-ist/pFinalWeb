@@ -46,10 +46,10 @@
                 <a class="nav-link fw-bold me-2" href="aboutUs.php">About Us</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link me-2 fw-bold" href="FAQ.php">Contact</a>
+                <a class="nav-link me-2 fw-bold" href="form2.php">Contact</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link me-2 fw-bold" href="FAQ.php">Help</a>
+                <a class="nav-link me-2 fw-bold" href="qa.php">Help</a>
                 </li>
             </ul>
             <?php

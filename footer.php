@@ -8,10 +8,10 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Store</a></li>
+      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">About Us</a></li>
+      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Contact</a></li>
+      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Help</a></li>
     </ul>
   </footer>
 </div>
