@@ -96,107 +96,104 @@
     </div>
 </fieldset>
 <br><br>
-    <!-- Tean work -->
+
+<div class="container">
+    <!-- Team work -->
     <p class="fs-2 text-center fw-bold">Our team work</p>
-<fieldset class="mvo">
-    <div class="d-flex justify-content-center row  row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/diego.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Diego Zamora Delgadillo</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>The Beatles</li>
-                            <li>Radiohead</li>
-                            <li>Pink Floyd</li>
-                            <li>Mac Miller</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/ivan.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Angel Ivan Reyes Hernandez</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>Interpol</li>
-                            <li>Taylor Swift</li>
-                            <li>The National</li>
-                            <li>Foal's</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/alet.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Alejandro Lopez Ruiz</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>Lana del Rey</li>
-                            <li>Radiohead</li>
-                            <li>The Backseat Lovers</li>
-                            <li>The Strokes</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/johan.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Johan Jose Maria Renteria Zaragoza</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>Magdalena Bay</li>
-                            <li>The Garden</li>
-                            <li>Kikuo</li>
-                            <li>Poison Girlfriend</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/ro.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Rodolfo Puente Zuñiga</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>Mac DeMarco</li>
-                            <li>Blur</li>
-                            <li>Foal's</li>
-                            <li>Michael Jackson</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 15rem;">
-                <img src="images/members/aaron.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Aaron Ruiz Fonseca</h5>
-                    <div class="card-text">
-                        <ul>
-                            <li>Temach</li>
-                            <li>Christian Castro</li>
-                            <li>Cepillin</li>
-                            <li>El Ezequiel</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="idk">
+    <div class="m-5 content d-flex flex-column align-items-center justify-content-center flex-grow-1">
+<div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center">
+  <div class="card m-5 bg-success text-white">
+    <img src="images/members/johan.jpg" class="card-img-top" width="50" alt="johan">
+    <div class="card-body">
+      <h5 class="card-title">Johan Jose Maria Renteria Zaragoza</h5>
+      <p class="card-text">
+        <ul>
+            <li>Magdalena Bay</li>
+            <li>The Garden</li>
+            <li>Kikuo</li>
+            <li>Poison Girlfriend</li>
+        </ul>
+      </p>
     </div>
-</fieldset>
+    
+  </div>
+  <div class="card m-5 bg-success text-white">
+    <img src="images/members/alet.jpg" class="card-img-top" width="50" alt="alex">
+    <div class="card-body">
+      <h5 class="card-title">Alejandro Lopez Ruiz</h5>
+      <p class="card-text">
+        <ul>
+            <li>Lana Del Rey</li>
+            <li>The Strokes</li>
+            <li>Radiohead</li>
+            <li>The Backseat Lovers</li>
+        </ul>
+      </p>
+    </div>
+    
+  </div>
+  <div class="card m-5 bg-success text-white">
+    <img src="images/members/ro.jpg" class="card-img-top" width="50" alt="rodolfo">
+    <div class="card-body">
+      <h5 class="card-title">Rodolfo Puente Zúñiga</h5>
+      <p class="card-text"><ul>
+            <li>Mac DeMarco</li>
+            <li>Blur</li>
+            <li>Foster The People</li>
+            <li>Michael Jackson</li>
+        </ul></p>
+    </div>
+    
+  </div>
+  <div class="card  m-5 bg-success text-white">
+    <img src="images/members/ivan.jpg" class="card-img-top" width="50" alt="ivan">
+    <div class="card-body">
+      <h5 class="card-title">Angel Ivan Reyes Hernandez</h5>
+      <p class="card-text">
+        <ul>
+            <li>Interpol</li>
+            <li>Taylor Swift</li>
+            <li>The National</li>
+            <li>Foals</li>
+        </ul>
+      </p>
+    </div>
+    
+  </div>
+  <div class="card  m-5 bg-success text-white">
+    <img src="images/members/aaron.png" class="card-img-top" width="50" alt="aaron">
+    <div class="card-body">
+      <h5 class="card-title">Aaron Ruiz Fonseca</h5>
+      <p class="card-text">
+        <ul>
+            <li>Temach</li>
+            <li>Christian Castro</li>
+            <li>Cepillin</li>
+            <li>El Ezequiel</li>
+        </ul>
+      </p>
+    </div>
+    
+  </div>
+  <div class="card m-5 bg-success text-white">
+    <img src="images/members/diego.jpg" class="card-img-top" width="50" alt="diego">
+    <div class="card-body">
+      <h5 class="card-title">Diego Zamora Delgadillo</h5>
+      <p class="card-text">
+        <ul>
+            <li>The Beatles</li>
+            <li>Radiohead</li>
+            <li>Pink Floyd</li>
+            <li>Mac Miller</li>
+        </ul></p>
+    </div>
+    
+  </div>
+</div>
+</div>
+    </div>
+</div>
+
 </body>
 </html>
