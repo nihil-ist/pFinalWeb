@@ -9,7 +9,7 @@ include "login2.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php if(!empty($_SESSION["user"])) echo $_SESSION["user"]." - "; else header("Location: login.php"); ?>Haven Records</title>
+    <title><?php if(!empty($_SESSION["user"])) echo $_SESSION["user"]." - "; else header("Location: index.php"); ?>Haven Records</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">

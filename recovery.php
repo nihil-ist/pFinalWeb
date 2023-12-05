@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 
 if(!isset($_SESSION['recover'])){
-    header("Location: login.php");
+    header("Location: index.php");
 }
 
 if (empty($_SESSION["user"])) {

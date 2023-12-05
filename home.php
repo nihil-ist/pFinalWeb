@@ -23,12 +23,7 @@ include "login2.php";
     <?php include "navbar.php" ?>
 
     <main role="main">
-    <!-- <div class="jumbotron jumbotron-fluid" style="background-image: url('assets/kida.jpg'); background-size: cover;">
-  <div class="container">
-    <h1 class="display-4">Haven Records</h1>
-    <p class="lead">Haven? More like Heaven</p>
-  </div>
-</div> -->
+
 <div class="shadow-lg container-fluid p-0 cover shadow-lg border-bottom border-5 border-dark" style="background-image: url(assets/kidA.jpg); background-size: cover;">
     <div class="mb-5">
         <h1 id="title">Haven Records</h1>
@@ -43,7 +38,7 @@ include "login2.php";
 
   <div class="row row-cols-1 row-cols-md-3">
   <div class="col mb-4">
-    <div class="card border-0">
+    <div class="card h-100 border-0">
       <img src="img/blue.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">BLUE</h3>
@@ -52,7 +47,7 @@ include "login2.php";
     </div>
   </div>
   <div class="col mb-4">
-    <div class="card border-0">
+    <div class="card h-100 border-0">
       <img src="img/grace.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">GRACE</h3>
@@ -61,7 +56,7 @@ include "login2.php";
     </div>
   </div>
   <div class="col mb-4">
-    <div class="card border-0">
+    <div class="card h-100 border-0">
       <img src="img/petsounds.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">PET SOUNDS</h3>
@@ -70,7 +65,7 @@ include "login2.php";
     </div>
   </div>
   <div class="col mb-4">
-    <div class="card border-0">
+    <div class="card h-100 border-0">
       <img src="img/burnin.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">Burnin'</h3>
@@ -78,7 +73,7 @@ include "login2.php";
       </div>
     </div>
   </div>
-  <div class="col mb-4">
+  <div class="col h-100 mb-4">
     <div class="card border-0">
       <img src="img/madvillainy.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
@@ -87,7 +82,7 @@ include "login2.php";
       </div>
     </div>
   </div>
-  <div class="col mb-4">
+  <div class="col h-100 mb-4">
     <div class="card border-0">
       <img src="img/abraxas.jpg" class="card-img-top" alt="...">
       <div class="card-body bg-primary text-white">
@@ -109,7 +104,9 @@ include "login2.php";
 </html>
 
 <?php
-if($_SESSION["newLogin"]){
+if(isset($_SESSION["newLogin"])){
+  if($_SESSION["newLogin"]){
+
     ?>
     <h1>HOLAAAAA</h1>
     <script type="text/javascript">
@@ -117,5 +114,5 @@ loginAlert();
 </script>        
     <?php $_SESSION["newLogin"] = false;
 
-}
+}}
 ?>

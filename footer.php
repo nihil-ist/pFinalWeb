@@ -7,11 +7,11 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Store</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">About Us</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Contact</a></li>
-      <li class="nav-item"><a href="#" class="nav-link fs-4 px-2 text-white">Help</a></li>
+      <li class="nav-item"><a href="index.php" class="nav-link fs-4 px-2 text-white">Home</a></li>
+      <li class="nav-item"><a href="store.php" class="nav-link fs-4 px-2 text-white">Store</a></li>
+      <li class="nav-item"><a href="aboutus.php" class="nav-link fs-4 px-2 text-white">About Us</a></li>
+      <li class="nav-item"><a href="form2.php" class="nav-link fs-4 px-2 text-white">Contact</a></li>
+      <li class="nav-item"><a href="qa.php" class="nav-link fs-4 px-2 text-white">Help</a></li>
     </ul>
   </footer>
 </div>
