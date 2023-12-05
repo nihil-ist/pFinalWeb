@@ -105,11 +105,11 @@ include "login2.php";
             echo "</table> 
             <input type='hidden' name='idT' value='$nombre_clave_primaria'>
             <div class='text-center'>
-                <input type='submit' class='btn btn-success mt-4' name='submit' value='Borrar registros' disabled>
+                <input type='submit' class='btn btn-success mt-4' name='submit' value='Delete Records' disabled>
             </div>";
             if($rBorrados){
                 ?>
-                <h2 class="text-center mt-5">Registros borrados</h2>
+                <h2 class="text-center mt-5">Records Deleted</h2>
                 <?php
             }
         }

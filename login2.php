@@ -101,6 +101,7 @@ if (!empty($_POST['signout'])) {
             }
         } else if($band == 3){
             $_SESSION["recover"]=$user;
+            $_SESSION["recoverAccount"]=$user;
             if(isset($_SESSION["recovered"])) unset($_SESSION["recovered"]);
             $band = 5;
         }

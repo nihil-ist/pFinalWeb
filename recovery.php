@@ -16,9 +16,9 @@ if ($conn->connect_error) {
 }
 
 
-if(!isset($_SESSION['recover'])){
-    header("Location: index.php");
-}
+// if(!isset($_SESSION['recover'])){
+//     header("Location: index.php");
+// }
 
 if (empty($_SESSION["user"])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['form_name'] == "recovery") {
@@ -26,7 +26,7 @@ if (empty($_SESSION["user"])) {
         $_POST['form_name'] = "";
         unset($_POST['form_name']);
 
-        $sql = "SELECT * FROM usuarios WHERE cuenta = \"".$_SESSION['recover']."\"";
+        $sql = "SELECT * FROM usuarios WHERE cuenta = \"".$_SESSION['recoverAccount']."\"";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -60,6 +60,8 @@ if (empty($_SESSION["user"])) {
             $result = $conn->query($sql);
             $sql = "UPDATE usuarios SET intentos = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
             $result = $conn->query($sql);
+            unset($_SESSION["recover"]);
+            header("Location: index.php");
         }
 
     }
