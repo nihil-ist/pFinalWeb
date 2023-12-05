@@ -69,7 +69,13 @@ if(isset($_SESSION["user"])){
     if($band == 5){
 ?>
 <div class="text-center mb-5">
-    <h1>Your account is blocked, go to <a href="recovery.php">Account Recovery</a> to recover the access to your account.</h1>
+    <h1>Your account is blocked, go to 
+        <form action="recovery.php" method="post">
+            <input type="hidden" name="form_name" value="access">
+            <input type="hidden" value="<?php echo htmlspecialchars($_POST['user']); ?>" name="user">
+        <input type="submit" value="Account Recovery">
+        </form>
+         to recover the access to your account.</h1>
 </div>
 
 <?php } ?>

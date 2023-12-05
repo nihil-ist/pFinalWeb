@@ -19,6 +19,9 @@ if ($conn->connect_error) {
 // if(!isset($_SESSION['recover'])){
 //     header("Location: index.php");
 // }
+if(isset($_POST["user"])){
+    $_SESSION["recoverAccount"] = $_POST["user"];
+}
 
 if (empty($_SESSION["user"])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['form_name'] == "recovery") {
@@ -54,13 +57,13 @@ if (empty($_SESSION["user"])) {
 
         if($password1==$password2){
             $newpassword = password_hash($password1, PASSWORD_BCRYPT);
-            $sql = "UPDATE usuarios SET bloqueado = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
+            $sql = "UPDATE usuarios SET bloqueado = 0 WHERE cuenta = \"".$_SESSION['recoverAccount']."\"";
             $result = $conn->query($sql);
-            $sql = "UPDATE usuarios SET contrasena = '$newpassword' WHERE cuenta = \"".$_SESSION['recover']."\"";
+            $sql = "UPDATE usuarios SET contrasena = '$newpassword' WHERE cuenta = \"".$_SESSION['recoverAccount']."\"";
             $result = $conn->query($sql);
-            $sql = "UPDATE usuarios SET intentos = 0 WHERE cuenta = \"".$_SESSION['recover']."\"";
+            $sql = "UPDATE usuarios SET intentos = 0 WHERE cuenta = \"".$_SESSION['recoverAccount']."\"";
             $result = $conn->query($sql);
-            unset($_SESSION["recover"]);
+            unset($_SESSION["recoverAccount"]);
             header("Location: index.php");
         }
 
