@@ -53,12 +53,39 @@ if ($conn->connect_error) {
     <div class="m-5 bg-dark shadow-lg p-5" style="opacity: 0.85 !important;" id="main-container">
 
     <?php 
-    $sql = "SELECT * FROM productos WHERE categoria='Vinyl'";
+    if(isset($_POST["submit"])){
+        $minvalue = $_POST['minimum'];
+        $maxvalue = $_POST['max'];
+        $sql = "SELECT * FROM productos WHERE categoria='Vinyl' and precio BETWEEN $minvalue AND $maxvalue";
+    }
+    else
+        $sql = "SELECT * FROM productos WHERE categoria='Vinyl'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
       echo "<div id='card-container' class=\"container\">";
-      echo "<div class=\"row justify-content-center\">";
+      echo "<div class=\"row justify-content-center\">
+      <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
+        <div class=\"mb-3 row justify-content-center\">
+          <h4 class=\"col-sm-2\">Filter by price</h4>
+          <div class=\"col-sm-10\">
+            <div class=\"row\">
+              <div class=\"col-sm-2\">
+                <input type=\"number\" class=\"form-control\" name=\"minimum\" required>
+              </div>
+              <div class=\"col-sm-1 col-form-label text-center\">-</div>
+              <div class=\"col-sm-2\">
+                <input type=\"number\" class=\"form-control\" name=\"max\" required>
+              </div>
+              <div class=\"col-sm-1 col-form-label text-center\"></div>
+              <div class=\"col-sm-1\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Filter\" name=\"submit\">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </form>";
       while($row = $result->fetch_assoc()) {
         echo "<div class=\"col-xxl-3 col-xl-4 col-md-5 text-center mx-auto\">";
         echo "<form action='product.php' method='post'><button style='background: none; color: inherit; border: none;' type='submit'>";

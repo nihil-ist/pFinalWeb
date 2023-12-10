@@ -59,7 +59,7 @@ if ($conn->connect_error) {
     if ($result->num_rows > 0) {
       echo "<div id='card-container' class=\"container\">";
       echo "<div class=\"row justify-content-center\">
-      <form method=\"post\" action=\"<?php echo htmlspecialchars($_SERVER[PHP_SELF]); ?>\">
+      <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
         <div class=\"mb-3 row justify-content-center\">
           <h4 class=\"col-sm-2\">Filter by price</h4>
           <div class=\"col-sm-10\">
@@ -73,7 +73,7 @@ if ($conn->connect_error) {
               </div>
               <div class=\"col-sm-1 col-form-label text-center\"></div>
               <div class=\"col-sm-1\">
-                <input type=\"submit\" class=\"btn btn-primary\" value=\"Filter\">
+                <input type=\"submit\" class=\"btn btn-primary\" value=\"Filter\" name=\"submit\">
               </div>
             </div>
           </div>
