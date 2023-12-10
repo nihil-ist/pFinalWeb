@@ -76,7 +76,7 @@
             ?>
             <a href="login.php">
                 <button type="button" class="text-white fs- btn btn-custom idk">
-                    Log in&nbsp;
+                    Sign In&nbsp;
                     <i class="fas fa-user"></i>
               </button>
             </a>

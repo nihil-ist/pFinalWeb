@@ -76,3 +76,26 @@ function loginAlert(){
         title: "Signed in successfully"
       });
 }
+
+function cartAlert(){
+  let timerInterval;
+  Swal.fire({
+    title: "Redirecting to Sign In Page",
+    html: "You have to be signed in to add a product to cart.",
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+      window.location.href = "login.php";
+  });
+}

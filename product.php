@@ -17,6 +17,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = $_POST["id"];
     $page = $_POST["page"];
     $file = $_POST["file"];
+    if (isset($_POST["cartform"])) {
+        if(!isset($_SESSION["user"])){
+            $boolCart = true;
+        } else if (isset($_POST["addcart"])) {
+            $idUsuario = $_SESSION["user"];
+            $idProducto = $id;
+            $consulta = "SELECT existencias FROM productos WHERE idProducto = ?";
+            $sentencia = $conn->prepare($consulta);
+            $sentencia->bind_param("i", $idProducto);
+            $sentencia->execute();
+            $resultado = $sentencia->get_result();
+            $producto = $resultado->fetch_assoc();
+          
+            $consulta = "SELECT * FROM cart WHERE cuentausuario = ? AND idproducto = ?";
+            $sentencia = $conn->prepare($consulta);
+            $sentencia->bind_param("si", $idUsuario, $idProducto);
+            $sentencia->execute();
+            $resultado = $sentencia->get_result();
+            $productoEnCarrito = $resultado->fetch_assoc();
+
+            if ($productoEnCarrito) {
+            // Si el producto ya está en el carrito, verifica si las existencias son suficientes para incrementar la cantidad
+            if ($productoEnCarrito['cantidad'] < $producto['existencias']) {
+                // Si las existencias son suficientes, incrementa la cantidad
+                $consulta = "UPDATE cart SET cantidad = cantidad + 1 WHERE cuentausuario = ? AND idproducto = ?";
+                $sentencia = $conn->prepare($consulta);
+                $sentencia->bind_param("si", $idUsuario, $idProducto);
+                $sentencia->execute();
+
+                echo "Cantidad del producto {$idProducto} incrementada en el carrito";
+                if(($productoEnCarrito['cantidad'])+1 == $producto['existencias']){
+                    $boolStock = true;
+                }
+            } else {
+                $boolStock = true;
+                echo "Lo sentimos, no hay suficientes existencias de este producto";
+                
+            }
+            } else {
+            // Si el producto no está en el carrito y hay existencias, añade una nueva fila
+            if ($producto['existencias'] > 0) {
+                $consulta = "INSERT INTO cart (cuentausuario, idproducto, cantidad) VALUES (?, ?, 1)";
+                $sentencia = $conn->prepare($consulta);
+                $sentencia->bind_param("si", $idUsuario, $idProducto);
+                $sentencia->execute();
+
+                echo "Producto {$idProducto} agregado al carrito";
+            } else {
+                echo "Lo sentimos, este producto está agotado";
+            }
+        } 
+    }
+    }
 } else { 
     $id = 1;
     $page = "All Products";
@@ -62,7 +115,9 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .link:hover{
             text-decoration: underline !important;
@@ -115,15 +170,22 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
 
     </div>
     <div style="opacity: 0.90 !important;">
-    <a href="#addToCart">
-        <!-- <form> -->
-        <?php if($stock>0){ ?>
-        <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100">
+    
+    <form action="" method="post">
+        
+        <input type="hidden" name="id" value="<?php echo $id ?>">
+        <input type="hidden" name="file" value="<?php echo $file ?>">
+        <input type="hidden" name="page" value="<?php echo $page ?>">
+        
+        <input type="hidden" name="cartform" value="cart">
+
+        <?php if($stock>0 && !isset($boolStock)){ ?>
+        <input type="submit" name="addcart" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100">
         <?php } else {?>
-        <input type="submit" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100" disabled>
-        <?php } ?>    
-         <!-- </form> -->
-    </a>
+        <input type="submit" name="addcart" value="Add to Cart" class="shadow-lg rounded-5 fs-2 p-3 mt-5 mb-3 btn btn-lg btn-primary btn-fluid w-100" disabled>
+        <?php } ?> 
+
+    </form>
     
     </div>
     
@@ -136,3 +198,15 @@ $sql = "SELECT * FROM productos WHERE idProducto=$id";
     <script src="js/script.js"></script>
 </body>
 </html>
+
+<?php
+if(isset($boolCart)){
+    if($boolCart){
+    ?>
+    <script type="text/javascript">
+cartAlert();
+</script>        
+    <?php $boolCart = false;
+
+}}
+?>

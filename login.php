@@ -13,7 +13,7 @@ if(isset($_SESSION["user"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Haven Records</title>
+    <title>Sign In - Haven Records</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
@@ -25,7 +25,7 @@ if(isset($_SESSION["user"])){
 
 <?php include "navbar.php"; ?>
 <div class="bg-dark shadow-lg m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
-<h1 id="namePage" class="text-center mt-5">Log in</h1>
+<h1 id="namePage" class="text-center mt-5">Sign In</h1>
 
 
 <form class="m-5" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
@@ -50,14 +50,14 @@ if(isset($_SESSION["user"])){
 <div class="form-check mb-4">
   <input class="form-check-input" id="remember" name="remember" type="checkbox" />
   <label class="form-check-label" for="remember">
-    Remember login
+    Remember me
   </label>
 </div>
 
 <input type="hidden" name="form_name" value="login">
 
 <div class="text-center mb-4">
-    <button type="submit"  class="btn btn-primary text-white mb-4 fs-5">Log in</button>
+    <button type="submit"  class="btn btn-primary text-white mb-4 fs-5">Sign In</button>
 </div>
 
 <div class="text-center">

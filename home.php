@@ -108,7 +108,6 @@ if(isset($_SESSION["newLogin"])){
   if($_SESSION["newLogin"]){
 
     ?>
-    <h1>HOLAAAAA</h1>
     <script type="text/javascript">
 loginAlert();
 </script>        
