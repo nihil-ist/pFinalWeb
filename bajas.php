@@ -40,7 +40,7 @@ include "login2.php";
 
 <div class="content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <?php
-    $servidor= 'localhost:33065';
+    $servidor= 'localhost:33066';
     $cuenta='root';
     $password='';
     $bd= 'havenrecords';

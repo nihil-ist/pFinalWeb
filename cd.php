@@ -2,7 +2,7 @@
 
 include "login2.php";
 
-$servername = "localhost:33065";
+$servername = "localhost:33066";
 $username = "root";
 $bd = "havenrecords";
 $password = "";
