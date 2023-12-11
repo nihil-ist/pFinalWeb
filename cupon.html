@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cupón HSBC</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+  }
+  .cupon{
+    width: 300px;
+
+    position: relative;
+    background-color: #ffffff;
+    margin: 0 auto;
+    
+  }
+  .cupon-cm{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+  }
+  .cupon:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 60px solid red;
+    border-right: 60px solid transparent;
+    width: 0;
+  }
+  .texto-amarillo {
+    color: #000000;
+    margin: 0px;
+  }
+  .texto-blanco {
+    color: rgb(77, 76, 145);
+    margin: 10px;
+  }
+ 
+</style>
+</head>
+<body>
+<div class="cupon-cm">
+    <div class="cupon">
+        <div class="in" style="display: grid; grid-row: 1;grid-column: 1/2; padding: 20px;">
+        <img style="width: 100px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/2560px-HSBC_logo_%282018%29.svg.png" alt="">
+        <div class="texto-amarillo" style="font-weight: bold">SAVE<span style="font-size: 40px; font-weight: bolder;">+10% AND PAY IN 20 MONTHS</span></div>
+        </div>
+        <div style="grid-column: 1/2; grid-row: 2; background-color: red; padding: 10px;"> CUPON: HSBHR</div>
+    </div>
+    <div class="texto-blanco"> <span style="font-size: 30px; font-weight: bolder;">+ GET 30%</span> DICOUNT FOR PAYING IN ONE EXHIBITION</div>
+    <div class="texto-blanco condiciones" style="font-size: 10px;">*consult terms and conditions</div> 
+</div>
+
+</body>
+</html>
