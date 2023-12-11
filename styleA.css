@@ -1,0 +1,7 @@
+.link{
+    text-decoration: none;
+    padding: 15px;
+    background-color: white;
+    border-bottom: 3px solid rgb(0, 158, 219); 
+    border-radius: 10px 10px 10px 10px;
+}
