@@ -66,9 +66,16 @@
                     &nbsp;<i class="fas fa-user"></i>
                     </button>
                 </a>
-                <a href="#cart">
+                <a href="cart.php">
                     <button type="button" class="border-0 btn text-white btn-custom">
-                    <i class="fa-solid fa-cart-shopping"></i> ( 0 )
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <?php 
+                    $total = 0;
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $idProducto => $cantidad) {
+                            $total += $cantidad;
+                        }
+                    }?> ( <?php echo $total ?> )
                     </button>
                 </a>
             <?php

@@ -82,6 +82,8 @@ function cartAlert(){
   Swal.fire({
     title: "Redirecting to Sign In Page",
     html: "You have to be signed in to add a product to cart.",
+    background: "url(assets/mcatisb.jpg)",
+    color: "#fff",
     timer: 3000,
     timerProgressBar: true,
     didOpen: () => {

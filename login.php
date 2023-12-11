@@ -20,6 +20,8 @@ if(isset($_SESSION["user"])){
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
 
@@ -68,15 +70,12 @@ if(isset($_SESSION["user"])){
 <?php 
     if($band == 5){
 ?>
-<div class="text-center mb-5">
-    <h1>Your account is blocked, go to 
-        <form action="recovery.php" method="post">
-            <input type="hidden" name="form_name" value="access">
-            <input type="hidden" value="<?php echo htmlspecialchars($_POST['user']); ?>" name="user">
-        <input type="submit" value="Account Recovery">
-        </form>
-         to recover the access to your account.</h1>
-</div>
+<form id="recoveryForm" method="post" action="recovery.php" style="display: none;">
+  <input type="hidden" name="myData" id="myData">
+  <input type="hidden" name="form_name" value="access">
+</form>
+
+
 
 <?php } ?>
 
@@ -93,3 +92,27 @@ if(isset($_SESSION["user"])){
 
 </body>
 </html>
+<script>
+function recoveryAlert(){
+  Swal.fire({
+    title: "Your Account Has Been Blocked",
+    text: "You have only 3 attempts to sign in",
+    icon: "error",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Go to Recovery Page"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('myData').value = "<?php echo htmlspecialchars($_POST['user']); ?>";
+      document.getElementById('recoveryForm').submit();
+    }
+  });
+}
+</script>
+<?php if($band == 5){?>
+<script type="text/javascript">
+  recoveryAlert();
+</script>
+<?php }
+?>
