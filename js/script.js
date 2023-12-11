@@ -29,7 +29,9 @@ function validarContraseña() {
         Swal.fire({
             title: "Oh!",
             text: "Password Doesn't Match!",
-            icon: "error"
+            icon: "error",
+            background: "url(assets/mcatisb.jpg)",
+            color: "#fff"
           });
         return false;
     }
@@ -44,7 +46,9 @@ function validarContrasena2() {
         Swal.fire({
             title: "Oh!",
             text: "Password Doesn't Match!",
-            icon: "error"
+            icon: "error",
+            background: "url(assets/mcatisb.jpg)",
+            color: "#fff"
           });
         return false;
     }
@@ -56,7 +60,10 @@ function validarPregunta() {
         Swal.fire({
             title: "That Was Not The Correct Answer",
             text: "Try Again!",
-            icon: "error"
+            icon: "error",
+            background: "url(assets/mcatisb.jpg)",
+            color: "#fff"
+            
           });
         return false;
 
@@ -73,7 +80,9 @@ function loginAlert(){
       });
       Toast.fire({
         icon: "success",
-        title: "Signed in successfully"
+        title: "Signed in successfully",
+        background: "url(assets/mcatisb.jpg)",
+        color: "#fff"
       });
 }
 
@@ -99,5 +108,24 @@ function cartAlert(){
   }).then((result) => {
     /* Read more about handling dismissals below */
       window.location.href = "login.php";
+  });
+}
+
+function incorrectLogin(){
+  Swal.fire({
+    title: "Incorrect Credentials",
+    text: "Verify the entered data",
+    icon: "error",
+    background: "url(assets/mcatisb.jpg)",
+    color: "#fff"
+  });
+}
+
+function contactAlert(){
+  Swal.fire({
+    title: "Your message has been submitted!",
+    text: "Check your email to see our response",
+    background: "url(assets/mcatisb.jpg)",
+    color: "#fff"
   });
 }

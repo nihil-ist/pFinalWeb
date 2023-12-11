@@ -56,6 +56,16 @@ try {
     // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
-header("Location: index.php");
+// header("Location: form2.php");
 
 ?>
+
+<form id="myFormContact" action="form2.php" method="POST">
+    <input type="hidden" name="contactsubmitted" value="submitted">
+</form>
+
+<script type="text/javascript">
+  window.onload = function(){
+    document.getElementById('myFormContact').submit();
+  }
+</script>

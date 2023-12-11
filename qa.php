@@ -34,7 +34,7 @@ include "login2.php";
 <fieldset class="container" style="width: 71rem;">
         <br><br>
         
-        <div class="m-5 accordion bg-dark " id="accordionExample" style="width: 71rem;">
+        <div class="m-5 accordion bg-dark ms-0" id="accordionExample" style="width: 71rem;">
             <div class="accordion-item bg-dark">
                 <h2 class="accordion-header">
                     <button class="accordion-button text-white bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

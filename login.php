@@ -75,8 +75,6 @@ if(isset($_SESSION["user"])){
   <input type="hidden" name="form_name" value="access">
 </form>
 
-
-
 <?php } ?>
 
 </div>
@@ -99,9 +97,11 @@ function recoveryAlert(){
     text: "You have only 3 attempts to sign in",
     icon: "error",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Go to Recovery Page"
+    confirmButtonColor: "#6a5acd",
+    cancelButtonColor: "#ff6188",
+    confirmButtonText: "Go to Recovery Page",
+    background: "url(assets/mcatisb.jpg)",
+    color: "#fff"
   }).then((result) => {
     if (result.isConfirmed) {
       document.getElementById('myData').value = "<?php echo htmlspecialchars($_POST['user']); ?>";
@@ -115,4 +115,11 @@ function recoveryAlert(){
   recoveryAlert();
 </script>
 <?php }
+?>
+
+<?php if(isset($incorrectLogin)){ if($incorrectLogin || $band==0){?>
+<script type="text/javascript">
+  incorrectLogin();
+</script>
+<?php }}
 ?>

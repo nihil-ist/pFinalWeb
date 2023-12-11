@@ -77,8 +77,13 @@ if (!empty($_POST['signout'])) {
                     $attempts = $row["intentos"];
                     $band = 2;
                     break;
+                } else {
+                    
                 }
+                    
+                
                 $band = 0;
+                $incorrectattempt = true;
             }
         }
 
@@ -98,12 +103,18 @@ if (!empty($_POST['signout'])) {
                 $result = $conn->query($sql);
                 $_SESSION["recovered"]=0;
                 if(isset($_SESSION["recovered"])) unset($_SESSION["recovered"]);
+            } else {
+                $incorrectLogin = true;
             }
         } else if($band == 3){
             $_SESSION["recover"]=$user;
             $_SESSION["recoverAccount"]=$user;
             if(isset($_SESSION["recovered"])) unset($_SESSION["recovered"]);
             $band = 5;
+        }
+
+        if(isset($incorrectattempt) && $band!=5){
+            $incorrectLogin=true;
         }
 
     }
