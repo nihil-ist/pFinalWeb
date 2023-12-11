@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gráfico de los 15 productos con más existencias</title>
+    <title>Gráfico de cantidad de usuarios por país</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h3>Top 15 de albumes con mas stock</h3>
     <canvas id="myChart" width="400" height="400"></canvas>
 
     <?php
-    // Conexión a la base de datos
+    // Tu código PHP para conectarte a la base de datos y realizar la consulta aquí...
+
+    // Datos para la conexión a la base de datos
     $servername = "localhost:3310";
     $username = "root";
     $password = "";
@@ -23,8 +24,8 @@
         die("Conexión fallida: " . $conn->connect_error);
     }
 
-    // Consulta SQL para obtener los 15 productos con más existencias
-    $sql = "SELECT nombreProducto, existencias FROM productos ORDER BY existencias DESC LIMIT 15";
+    // Consulta SQL para contar la cantidad de usuarios por país
+    $sql = "SELECT pais, COUNT(*) AS cantidad FROM usuarios GROUP BY pais";
     $result = $conn->query($sql);
 
     $labels = [];
@@ -32,8 +33,8 @@
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $labels[] = $row["nombreProducto"];
-            $data[] = $row["existencias"];
+            $labels[] = $row["pais"];
+            $data[] = $row["cantidad"];
         }
     }
 
@@ -55,19 +56,20 @@
             data: {
                 labels: labelsFromPHP,
                 datasets: [{
-                    label: 'Existencias',
+                    label: 'Cantidad de usuarios por país',
                     data: dataFromPHP,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.5)',
                         'rgba(54, 162, 235, 0.5)',
                         'rgba(255, 206, 86, 0.5)',
                         'rgba(75, 192, 192, 0.5)',
-                        // ... Puedes añadir más colores si tienes más datos
+                        // Puedes añadir más colores aquí si tienes más países
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
+                // Configuraciones adicionales del gráfico
                 responsive: false, // Esto evita que el gráfico se ajuste automáticamente
                 maintainAspectRatio: false, 
             }

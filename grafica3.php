@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gráfico de los 15 productos con más existencias</title>
+    <title>Gráfico de cantidad de CDs y Vinilos en la base de datos</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h3>Top 15 de albumes con mas stock</h3>
     <canvas id="myChart" width="400" height="400"></canvas>
 
     <?php
-    // Conexión a la base de datos
+    // Tu código PHP para conectarte a la base de datos y realizar la consulta aquí...
+
+    // Datos para la conexión a la base de datos
     $servername = "localhost:3310";
     $username = "root";
     $password = "";
@@ -23,8 +24,8 @@
         die("Conexión fallida: " . $conn->connect_error);
     }
 
-    // Consulta SQL para obtener los 15 productos con más existencias
-    $sql = "SELECT nombreProducto, existencias FROM productos ORDER BY existencias DESC LIMIT 15";
+    // Consulta SQL para contar la cantidad de CDs y Vinilos
+    $sql = "SELECT categoria, COUNT(*) AS cantidad FROM productos WHERE categoria IN ('CD', 'Vinyl') GROUP BY categoria";
     $result = $conn->query($sql);
 
     $labels = [];
@@ -32,8 +33,8 @@
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $labels[] = $row["nombreProducto"];
-            $data[] = $row["existencias"];
+            $labels[] = $row["categoria"];
+            $data[] = $row["cantidad"];
         }
     }
 
@@ -51,23 +52,22 @@
         var dataFromPHP = <?php echo $data_json; ?>;
 
         var myChart = new Chart(ctx, {
-            type: 'line',
+            type: 'pie',
             data: {
                 labels: labelsFromPHP,
                 datasets: [{
-                    label: 'Existencias',
+                    label: 'Cantidad de CDs y Vinilos',
                     data: dataFromPHP,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)',
-                        // ... Puedes añadir más colores si tienes más datos
+                        'rgba(255, 99, 132, 0.5)', // Color para CDs
+                        'rgba(54, 162, 235, 0.5)' // Color para Vinilos
+                        // Puedes añadir más colores aquí si tienes más categorías
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
+                // Configuraciones adicionales del gráfico
                 responsive: false, // Esto evita que el gráfico se ajuste automáticamente
                 maintainAspectRatio: false, 
             }

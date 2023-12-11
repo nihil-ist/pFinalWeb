@@ -5,8 +5,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h3>Top 15 de albumes con mas stock</h3>
-    <canvas id="myChart" width="400" height="400"></canvas>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    
 
     <?php
     // Conexión a la base de datos
@@ -51,7 +51,7 @@
         var dataFromPHP = <?php echo $data_json; ?>;
 
         var myChart = new Chart(ctx, {
-            type: 'doughnut',
+            type: 'line',
             data: {
                 labels: labelsFromPHP,
                 datasets: [{
