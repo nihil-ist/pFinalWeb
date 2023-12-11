@@ -62,6 +62,14 @@ function validarPregunta() {
 
 }
 
+function sorpresa(){
+  Swal.fire({
+    title: "Oh whats this??",
+    text: "We have sent to you a surprise via email",
+    icon: "question"
+  });
+}
+
 function loginAlert(){
     const Toast = Swal.mixin({
         toast: true,
