@@ -9,10 +9,10 @@
     <h1>Gráfico de los 15 productos con más existencias</h1>
     <canvas id="chartProductos" width="400" height="400"></canvas>
 
-    <h1>Gráfico de cantidad de usuarios por país</h1>
+    <h1>Gráfico de ventas realizadas por pais</h1>
     <canvas id="chartUsuariosPorPais" width="400" height="400"></canvas>
 
-    <h1>Gráfico de cantidad de CDs y Vinilos en la base de datos</h1>
+    <h1>Gráfico de distribucion de CDs y Vinilos en la base de datos</h1>
     <canvas id="chartCDsVinilos" width="400" height="400"></canvas>
     </div>
 
