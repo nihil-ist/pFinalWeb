@@ -124,7 +124,7 @@ $dataCDsVinilos_json = json_encode($dataCDsVinilos);
 <div class="content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <div class="m-5">
     <div class="text-center">
-        <h1 class="title mb-5">Update</h1>
+        <h1 class="heading mb-5">Stadistics</h1>
     </div>
     <div class="container d-flex flex-column align-items-center">
     <h1 >15 Products With More Stock</h1>
