@@ -29,6 +29,7 @@ if (!empty($_POST['signout'])) {
     unset($_SESSION["uemail"]);
     unset($_SESSION["uname"]);
     unset($_SESSION["newLogin"]);
+    unset($_SESSION["cart"]);
 
     session_destroy();
     $_POST['signout'] = "";

@@ -46,7 +46,7 @@ if ($conn->connect_error) {
 </div>
     <div class="m-5 p-5 bg-dark shadow-lg" style="opacity: 0.85 !important;" id="main-container">
     <?php 
-    if(isset($_SESSION["cart"])) { if($_SESSION['cart']){
+    if(isset($_SESSION["cart"]))  { if($_SESSION['cart']){
     ?>
     <table class="p-5">
         
@@ -117,7 +117,15 @@ if ($conn->connect_error) {
 </form></div>
 
 
+<?php } else { ?>
+
+  <div class="text-center m-5">
+<h1 class="mb-5">Your cart is empty</h1>
+<a class="btn btn-primary fs-3" href="store.php">Browse Our Products</a>
+</div>
+  
 <?php } } else {?>
+  
 <div class="text-center m-5">
 <h1 class="mb-5">Your cart is empty</h1>
 <a class="btn btn-primary fs-3" href="store.php">Browse Our Products</a>

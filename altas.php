@@ -2,6 +2,14 @@
 
 include "login2.php";
 
+if(isset($_SESSION["user"])){
+    if($_SESSION["user"]!="admin"){
+        header('Location: index.php');
+    }
+} else {
+    header('Location: index.php');
+}
+
 ?>  
 <?php
     $nomImg = "";

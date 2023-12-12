@@ -2,6 +2,14 @@
 
 include "login2.php";
 
+if(isset($_SESSION["user"])){
+    if($_SESSION["user"]!="admin"){
+        header('Location: index.php');
+    }
+} else {
+    header('Location: index.php');
+}
+
 ?>  
 <!DOCTYPE html>	
 <html lang="en">
@@ -9,7 +17,7 @@ include "login2.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bajas - Haven Records</title>
+    <title>Delete - Haven Records</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">

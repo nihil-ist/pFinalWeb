@@ -31,10 +31,12 @@
                         <a class="nav-link fw-bold dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Database
                         </a>
-                        <ul class="dropdown-menu bg-dark">
+                        <ul class="dropdown-menu bg-dark" style="opacity: 0.85 !important;">
                             <li><a class="dropdown-item text-white" href="altas.php">Create</a></li>
                             <li><a class="dropdown-item text-white" href="cambios.php">Update</a></li>
                             <li><a class="dropdown-item text-white" href="bajas.php">Delete</a></li>
+                            <li><hr class="dropdown-divider text-white" style="border-top-color: #fff !important; "></li>
+                            <li><a class="dropdown-item text-white" href="fgrafica.php">Stadistics</a></li>
                         </ul>
                     </li>
 

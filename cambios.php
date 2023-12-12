@@ -2,6 +2,14 @@
 
 include "login2.php";
 
+if(isset($_SESSION["user"])){
+    if($_SESSION["user"]!="admin"){
+        header('Location: index.php');
+    }
+} else {
+    header('Location: index.php');
+}
+
 ?>  
 <!DOCTYPE html>	
 <html lang="en">
@@ -9,7 +17,7 @@ include "login2.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cambios - Haven Records</title>
+    <title>Update - Haven Records</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
@@ -56,7 +64,7 @@ include "login2.php";
         $result_data = $conexion->query($sql_data);
         $bandera = false;
         if ($result_data->num_rows > 0) {
-            echo "<table border='1' style='text-align:center;' class='shadow-lg table-hover table table-dark table-striped mt-5'><tr>";
+            echo "<table style='text-align:center;' class='shadow-lg table-hover table table-dark table-striped mt-5'><tr>";
             while ($fieldinfo = $result_data->fetch_field()) {
                 if ($bandera === false){
                     echo "<th class='align-middle'>Cambios</th>";

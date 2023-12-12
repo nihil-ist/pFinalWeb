@@ -65,27 +65,25 @@ if ($conn->connect_error) {
     if ($result->num_rows > 0) {
       echo "<div id='card-container' class=\"container\">";
       echo "<div class=\"row justify-content-center\">
+      <div class='d-flex  justify-content-center'>
       <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
         <div class=\"my-5 row justify-content-center\">
-          <h4 class=\"col-lg-2 text-center mb-3\">Filter by price</h4>
-          <div class=\"col-lg-10\">
-            <div class=\"row\">
-              <div class=\"col-lg-2 form-outline\">
+          <h4 class=\"col-md-3 text-center mb-3\">Filter by price</h4>
+          
+              <div class=\"col-md-3 form-outline\">
                 <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"minimum\" placeholder=\"\$Min\" required>
               </div>
-              <div class=\"col-lg-1 col-form-label text-center\">to</div>
-              <div class=\"col-lg-2 form-outline\">
+              <div class=\"col-md-1 col-form-label text-center\">to</div>
+              <div class=\"col-md-3 mb-3 form-outline\">
                 <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"max\" placeholder=\"\$Max\" required>
               </div>
-              <div class=\"col-lg-1 col-form-label text-center\"></div>
-              <div class=\"col-lg-1 text-center\">
+              <div class=\"col-md-2 text-center\">
                 <input type=\"submit\" class=\"shadow-lg btn btn-primary\" value=\"Go\" name=\"submit\">
               </div>
-            </div>
-          </div>
+          
         </div>
         <br>
-      </form>";
+      </form></div>";
       while($row = $result->fetch_assoc()) {
         echo "<div class=\"col-xxl-3 col-xl-4 col-md-5 text-center mx-auto\">";
         echo "<form action='product.php' method='post'><button style='background: none; color: inherit; border: none;' type='submit'>";
@@ -118,31 +116,27 @@ if ($conn->connect_error) {
       echo "</div>";
 
     } else {
-
       echo "<div id='card-container' class=\"container\">";
       echo "<div class=\"row justify-content-center\">
+      <div class='d-flex  justify-content-center'>
       <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
-        <div class=\"my-5  row justify-content-center\">
-          <h4 class=\"col-lg-2 text-center mb-3\">Filter by price</h4>
-          <div class=\"col-lg-10\">
-            <div class=\"row\">
-              <div class=\"col-lg-2 form-outline\">
+        <div class=\"my-5 row justify-content-center\">
+          <h4 class=\"col-md-3 text-center mb-3\">Filter by price</h4>
+          
+              <div class=\"col-md-3 form-outline\">
                 <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"minimum\" placeholder=\"\$Min\" required>
               </div>
-              <div class=\"col-lg-1 col-form-label text-center\">to</div>
-              <div class=\"col-lg-2 form-outline\">
+              <div class=\"col-md-1 col-form-label text-center\">to</div>
+              <div class=\"col-md-3 mb-3 form-outline\">
                 <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"max\" placeholder=\"\$Max\" required>
               </div>
-              <div class=\"col-lg-1 col-form-label text-center\"></div>
-              <div class=\"col-lg-1 text-center\">
+              <div class=\"col-md-2 text-center\">
                 <input type=\"submit\" class=\"shadow-lg btn btn-primary\" value=\"Go\" name=\"submit\">
               </div>
-            </div>
-          </div>
+          
         </div>
         <br>
-      </form>
-      </div></div>";
+      </form></div></div></div>";
       ?>
       
       <div class="text-center m-5 mt-0">

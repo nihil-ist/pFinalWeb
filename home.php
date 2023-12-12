@@ -38,9 +38,9 @@ if(isset($_POST['submit'])){
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Confirmation of message received';
+        $mail->Subject = 'Welcome to Haven Records Mailing List';
         $mail->Body    = "<p>Welcome to the club, $name!</p>
-                        <p>You may be surprised by this email, but we wanted you to receive a coupon, because we want to welcome you the best way possible!!</p>
+                        <p>You may be surprised by this email, but we wanted you to receive a coupon, because we want to welcome you the best way possible!</p>
                         <p>You can use this coupon on whichever purchase you want and it will be applied to it, it is a pleasure to hear about you joining.</p>
                         <p>We really hope you enjoy the benefits of being a suscriber, enjoy and be happy :)</p>
                         ";
@@ -91,18 +91,18 @@ if(isset($_POST['submit'])){
 
 <div class="shadow-lg container-fluid p-0 cover shadow-lg border-bottom border-5 border-dark" style="background-image: url(assets/kidA.jpg); background-size: cover;">
     <div class="mb-5">
-        <h1 id="title">Haven Records</h1>
+        <h1 id="title" class="text-center">Haven Records</h1>
     </div>
     <div class="mb-5">
-        <h2 id="slogan">&nbsp;Haven? More Like Heaven&nbsp;</h2>
+        <h2 id="slogan" class="text-center">&nbsp;Haven? More Like Heaven&nbsp;</h2>
     </div>
 </div>
 <div class="bg-dark p-5 shadow-lg text-center m-5 mb-0" style="opacity: 0.85 !important; margin-top: 6% !important;">
-<h2 class="heading m-5 mt-0 text-light card-text">Our best <span>Sellers</span></h2>
+<h2 class="heading m-5 mt-0 text-light card-text">Our All-Time Favorites</h2>
   <div class="row row-cols-1 row-cols-md-3">
   <div class="col mb-4">
     <div class="card h-100 border-0">
-      <img src="img/blue.jpg" class="card-img-top" alt="...">
+      <img src="img/blue.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">BLUE</h3>
         <h5 class="card-text">Blue is the fourth studio album by Canadian singer-songwriter Joni Mitchell, released on June 22, 1971, by Reprise Records..</h5>
@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="col mb-4">
     <div class="card h-100 border-0">
-      <img src="img/grace.jpg" class="card-img-top" alt="...">
+      <img src="img/grace.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">GRACE</h3>
         <h5 class="card-text">Grace is the only studio album by American singer-songwriter Jeff Buckley, released on August 23, 1994, by Columbia Records</h5>
@@ -120,7 +120,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="col mb-4">
     <div class="card h-100 border-0">
-      <img src="img/petsounds.jpg" class="card-img-top" alt="...">
+      <img src="img/petsounds.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">PET SOUNDS</h3>
         <h5 class="card-text">Pet Sounds is the eleventh studio album by the American rock band the Beach Boys, released on May 16, 1966 by Capitol Records.</h5>
@@ -129,7 +129,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="col mb-4">
     <div class="card h-100 border-0">
-      <img src="img/burnin.jpg" class="card-img-top" alt="...">
+      <img src="img/burnin.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">Burnin'</h3>
         <h5 class="card-text">Burnin' is the sixth album by Jamaican reggae group the Wailers released in October 1973.</h5>
@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="col h-100 mb-4">
     <div class="card border-0">
-      <img src="img/madvillainy.jpg" class="card-img-top" alt="...">
+      <img src="img/madvillainy.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">MADVILLAINY</h3>
         <h5 class="card-text">Madvillainy is the only studio album by American hip hop duo Madvillain, consisting of British-American rapper MF Doom and American record producer Madlib.</h5>
@@ -147,7 +147,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="col h-100 mb-4">
     <div class="card border-0">
-      <img src="img/abraxas.jpg" class="card-img-top" alt="...">
+      <img src="img/abraxas.jpg" class="card-img-top zoom" alt="...">
       <div class="card-body bg-primary text-white">
         <h3 class="card-title fw-bold">ABRAXAS</h3>
         <h5 class="card-text">Abraxas is the second studio album by Latin rock band Santana. It was released on September 23, 1970 by Columbia Records and became the band's first album to reach number one in the United States.</h5>
@@ -184,13 +184,28 @@ if(isset($_POST['submit'])){
       </form>
       </div>
     <?php }else{?>
-      <div class="col-sm-12 text-white h1 text-center  fw-bold slogan py-5">Thank You For Being A Loyal Subscriber Of This Record Store</div>
-  </div>
+      <div class="col-sm-12 text-white h1 text-center fw-bold slogan py-5">Thank You For Being A Loyal Subscriber Of This Record Store</div>
 <?php }}
   $conn->close();
 } ?>
-<div class="bg-dark p-5 shadow-lg text-center m-5 mt-0" style="opacity: 0.85 !important;">
-  <p class="text-center"><img src="images/xmas_coupon.png" alt=""></p>
+</div>
+<div class="bg-primary p-5 shadow-lg text-center m-5 mt-0 mb-0" style="opacity: 0.85 !important;">
+  <h1 class="text-center m-5 mt-0 heading">Check Out This Limited-Time Coupon!</h1>
+  <p class="text-center"><img width="60%" src="images/xmas_coupon.png" alt=""></p>
+</div>
+<div class="bg-dark p-5 shadow-lg text-center m-5 mt-0 d-flex flex-column flex-lg-row justify-content-around center align-items-center" style="opacity: 0.85 !important;">
+  <div class="m-5">
+    <h1 class="text-center slogan heading">Recently Added</h1>
+    <h1 class="text-center slogan">Kendrick Lamar's "To Pimp A Butterfly"</h1>
+  </div>
+  <div>
+  <form action="product.php" method="post">
+      <button type="submit" style="background: none; color: inherit; border: none;" class=" text-decoration-none"><img class="zoom" width="100%" src="img/tpab.jpg" alt="tpab"></button>
+      <input type='hidden' name='id' value='21'>
+      <input type='hidden' name='page' value='Home'>
+      <input type='hidden' name='file' value='index.php'>
+  </form>
+  </div>
 </div>
 </main>
 
