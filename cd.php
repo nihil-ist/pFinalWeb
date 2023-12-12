@@ -2,7 +2,7 @@
 
 include "login2.php";
 
-$servername = "localhost:33066";
+$servername = "localhost:33065";
 $username = "root";
 $bd = "havenrecords";
 $password = "";
@@ -66,20 +66,20 @@ if ($conn->connect_error) {
       echo "<div id='card-container' class=\"container\">";
       echo "<div class=\"row justify-content-center\">
       <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
-        <div class=\"mb-3 row justify-content-center\">
-          <h4 class=\"col-sm-2\">Filter by price</h4>
-          <div class=\"col-sm-10\">
+        <div class=\"my-5 row justify-content-center\">
+          <h4 class=\"col-lg-2 text-center mb-3\">Filter by price</h4>
+          <div class=\"col-lg-10\">
             <div class=\"row\">
-              <div class=\"col-sm-2\">
-                <input type=\"number\" class=\"form-control\" name=\"minimum\" required>
+              <div class=\"col-lg-2 form-outline\">
+                <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"minimum\" placeholder=\"\$Min\" required>
               </div>
-              <div class=\"col-sm-1 col-form-label text-center\">-</div>
-              <div class=\"col-sm-2\">
-                <input type=\"number\" class=\"form-control\" name=\"max\" required>
+              <div class=\"col-lg-1 col-form-label text-center\">to</div>
+              <div class=\"col-lg-2 form-outline\">
+                <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"max\" placeholder=\"\$Max\" required>
               </div>
-              <div class=\"col-sm-1 col-form-label text-center\"></div>
-              <div class=\"col-sm-1\">
-                <input type=\"submit\" class=\"btn btn-primary\" value=\"Filter\" name=\"submit\" >
+              <div class=\"col-lg-1 col-form-label text-center\"></div>
+              <div class=\"col-lg-1 text-center\">
+                <input type=\"submit\" class=\"shadow-lg btn btn-primary\" value=\"Go\" name=\"submit\">
               </div>
             </div>
           </div>
@@ -118,8 +118,37 @@ if ($conn->connect_error) {
       echo "</div>";
 
     } else {
-      echo "0 resultados";
-    }
+
+      echo "<div id='card-container' class=\"container\">";
+      echo "<div class=\"row justify-content-center\">
+      <form method=\"post\" action=\" $_SERVER[PHP_SELF]\">
+        <div class=\"my-5  row justify-content-center\">
+          <h4 class=\"col-lg-2 text-center mb-3\">Filter by price</h4>
+          <div class=\"col-lg-10\">
+            <div class=\"row\">
+              <div class=\"col-lg-2 form-outline\">
+                <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"minimum\" placeholder=\"\$Min\" required>
+              </div>
+              <div class=\"col-lg-1 col-form-label text-center\">to</div>
+              <div class=\"col-lg-2 form-outline\">
+                <input type=\"number\" class=\"text-white filter form-control bg-transparent\" name=\"max\" placeholder=\"\$Max\" required>
+              </div>
+              <div class=\"col-lg-1 col-form-label text-center\"></div>
+              <div class=\"col-lg-1 text-center\">
+                <input type=\"submit\" class=\"shadow-lg btn btn-primary\" value=\"Go\" name=\"submit\">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </form>
+      </div></div>";
+      ?>
+      
+      <div class="text-center m-5 mt-0">
+      <h1 class="mb-5">Sorry, we couldn't find any record in that range of price :(</h1>
+      </div>
+      <?php }
     $conn->close();
     ?>
     </div>

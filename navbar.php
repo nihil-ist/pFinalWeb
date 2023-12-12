@@ -17,7 +17,7 @@
                 <a class="nav-link fw-bold dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Store
                 </a>
-                <ul class="dropdown-menu bg-dark">
+                <ul class="dropdown-menu bg-dark" style="opacity: 0.85 !important;">
                     <li><a class="dropdown-item text-white" href="store.php">All Products</a></li>
                     <li><a class="dropdown-item text-white" href="vinyl.php">Vinyl Records</a></li>
                     <li><a class="dropdown-item text-white" href="cd.php">CDs</a></li>

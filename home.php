@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
     }
 
     //we are gonna set the suscription attribute to 1 since there is  a suscription for this user
-    $servername = "localhost:33066";
+    $servername = "localhost:33065";
     $username = "root";
     $bd = "havenrecords";
     $password = "";
@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
 </div>
 </div>
 <?php if(isset($_SESSION["user"])){
-  $servername = "localhost:33066";
+  $servername = "localhost:33065";
   $username = "root";
   $bd = "havenrecords";
   $password = "";
@@ -175,8 +175,8 @@ if(isset($_POST['submit'])){
     ?>
   <div class="row mb-0 mx-5 cover" style="background-image: url(images/banner.jpg); background-size: cover;">
     <?php if($row["suscripcion"]==0){?>
-      <div class="col-sm-12 text-white h1 text-center" style="display: flex; justify-content:space-around; align-items:center;">
-        JOIN OUR CLUB OF SAVIORS
+      <div class="col-sm-12 text-white fw-bold h1 text-center slogan py-5"  style="display: flex; justify-content:space-around; align-items:center;">
+        Join Our Club Of Melomaniacs!
         <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
           <input type="submit" class="btn btn-primary fs-2 p-3" value="Subscribe to us" name="submit">
           <input type="hidden" name="name" value="<?php echo $_SESSION["user"] ?>">
@@ -184,7 +184,7 @@ if(isset($_POST['submit'])){
       </form>
       </div>
     <?php }else{?>
-      <div class="col-sm-12 text-white h1 text-center">THANKS FOR BEING A LOYAL SUBSCRIBER OF THIS RECORD LABEL</div>
+      <div class="col-sm-12 text-white h1 text-center  fw-bold slogan py-5">Thank You For Being A Loyal Subscriber Of This Record Store</div>
   </div>
 <?php }}
   $conn->close();

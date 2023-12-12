@@ -31,7 +31,7 @@
 
 <div class="bg-dark shadow-lg text-center p-5 m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 <?php
-    $servidor= 'localhost:33066';
+    $servidor= 'localhost:33065';
     $cuenta='root';
     $password='';
     $bd= 'havenrecords';

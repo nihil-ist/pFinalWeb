@@ -71,9 +71,11 @@ function validarPregunta() {
 
 function sorpresa(){
   Swal.fire({
-    title: "Oh whats this??",
-    text: "We have sent to you a surprise via email",
-    icon: "question"
+    title: "Check Your Email",
+    text: "We have sent you a surprise via email!",
+    icon: "info",
+    background: "url(assets/mcatisb.jpg)",
+    color: "#fff"
   });
 }
 

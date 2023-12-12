@@ -121,6 +121,16 @@ h1#slogan{
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.slogan{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .cover-text{
   background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+input.filter::placeholder{
+  color: white !important;
+  opacity: 0.6;
 }

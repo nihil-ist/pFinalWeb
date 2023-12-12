@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // El hash a la salt
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $host = "localhost:33066";
+    $host = "localhost:33065";
     $usuario_bd = "root";
     $contraseña_bd = "";
     $nombre_bd = "havenrecords";

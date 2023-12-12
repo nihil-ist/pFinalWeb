@@ -15,7 +15,7 @@ include "login2.php";
             }
         }
     }
-    $nombre_servidor = "localhost:33066";
+    $nombre_servidor = "localhost:33065";
     $nombre_usuario = "root";
     $contraseña = "";
     $nombre_base_datos = "havenrecords";

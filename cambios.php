@@ -46,7 +46,7 @@ include "login2.php";
     
     <form action="update.php" method="post">
     <?php
-        $servidor= 'localhost:33066';
+        $servidor= 'localhost:33065';
         $cuenta='root';
         $password='';
         $bd= 'havenrecords';
