@@ -111,7 +111,7 @@ $conn->close();
 
 <div class="m-5 content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <div class="text-center">
-    <h1 class="title mb-5">Create</h1>
+    <h1 class=" mb-5 heading">Create</h1>
     <h2 class="text-center mb-5"></h2>
         <div class="mt-4">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">

@@ -1,4 +1,8 @@
 <?php
+
+include "login2.php";
+
+
 require('fpdf/fpdf.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -104,13 +108,13 @@ $pdf->SetFont('Arial', '', 12);
 
 $pdf->Cell(0, 10, "Total Amount: $" . number_format($totalAmount, 2), 0, 1);
 $pdf->Cell(0, 10, "Taxes: $" . number_format($taxes, 2), 0, 1);
-$pdf->Cell(0, 10, "Package Cost: $" . number_format($packageCost, 2), 0, 1);
+$pdf->Cell(0, 10, "Shipping Cost: $" . number_format($packageCost, 2), 0, 1);
 
 $pdf->SetFont('Arial', 'B', 14);
 $pdf->Cell(0, 10, "Final Amount: $" . number_format($finalAmount, 2), 0, 1);
 
 // Output the PDF to a file
-$pdfFileName = 'shopping_ticket.pdf';
+$pdfFileName = 'shopping_ticket-'.$_SESSION["user"].'.pdf';
 $pdf->Output($pdfFileName, 'F');
 
 function generateRandomString($length = 10) {
@@ -198,19 +202,57 @@ function sendEmail($fullName,$emailAddress,$address,$country,$postalCode,$phoneN
     }
 }
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE html>	
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Ticket</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Ticket - Haven Records</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <style>
+        td, th{
+            padding: 10px;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        footer {
+            margin-top: auto;
+        }
+        h1.title{
+            font-size: 3em;
+        }
+        .custom-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23FFF' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+        }
+    </style>
 </head>
-<body>
-    <h1>Shopping Ticket generated successfully!</h1>
-    <p>Your Shopping Ticket has been generated. <a href="<?php echo $pdfFileName; ?>" target="_blank">View Shopping Ticket (PDF)</a></p>
+<body class=" text-white" style="background-image: url('assets/mcatis2.jpg'); background-size: cover;">
+<!-- NAVEGACION -->
+<?php include "navbar.php"?>
+<!-- FIN NAVEGACION -->
+<div class="bg-dark shadow-lg text-center m-5 p-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
+<h1 class="heading mb-5">Shopping Ticket Generated Successfully!</h1>
+    <h1 class="mb-5">Your Shopping Ticket has been generated: <a href="<?php echo $pdfFileName; ?>" target="_blank">View Shopping Ticket (PDF)</a></h1>
 
     <!-- Add download link -->
-    <p>Alternatively, you can download the PDF file:</p>
-    <a href="<?php echo $pdfFileName; ?>" download>Download Shopping Ticket (PDF)</a>
+    <h1>Alternatively, you can download the PDF file: <a class="fs-1" href="<?php echo $pdfFileName; ?>" download>Download Shopping Ticket (PDF)</a></h1>
+    
+</div>
+
+<?php include "footer.php"?>
+
+<script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -125,7 +125,7 @@ if ($conn->connect_error) {
           <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][id]" value="<?php echo $idProducto; ?>">
           <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][name]" value="<?php echo $producto['nombreProducto']; ?>">
           <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][quantity]" value="<?php echo $cantidad; ?>">
-          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][price]" value="<?php echo $producto['precio']; ?>">
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][price]" value="<?php $discount = $producto["descuento"]*0.01; $newprice =  $producto["precio"]-($producto["precio"]*$discount); echo $newprice; ?>">
           <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][total]" value="<?php echo $totalprice; ?>">
       <?php endforeach; ?>
       

@@ -71,7 +71,7 @@ if(isset($_SESSION["user"])){
     }
 ?>
 <div class="m-5 text-center">
-    <h1 class="title mb-5">Delete</h1>
+    <h1 class="heading mb-5">Delete</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <?php
         $conexion =mysqli_connect($servidor,$cuenta,$password,$bd);
