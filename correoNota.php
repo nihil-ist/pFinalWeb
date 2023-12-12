@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -58,4 +61,8 @@ try {
 
 header("Location: index.php");
 
+?>
+
+<?php
+    ob_end_flush();
 ?>

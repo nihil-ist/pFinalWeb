@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 session_start();
 $background_image = imagecreatefromjpeg('images/pattern2.jpg');
 $image = imagecreatetruecolor(imagesx($background_image), imagesy($background_image));
@@ -31,4 +34,8 @@ imagepng($image);
 
 imagedestroy($background_image);
 imagedestroy($image);
+?>
+
+<?php
+    ob_end_flush();
 ?>

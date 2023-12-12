@@ -1,6 +1,14 @@
 <?php
+    ob_start();
+?>
+
+<?php
 
 include "login2.php";
+
+if(!isset($_SESSION['cart'])){
+    header("Location: index.php");
+}
 
 ?>  
 
@@ -45,7 +53,7 @@ include "login2.php";
 <div class="bg-dark shadow-lg text-center m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 <div class="m-5 maincontainer">
     <div class="form mx-5">
-        <form action="ticket.php" method="post" target="_blank" enctype="multipart/form-data" id="checkoutForm" >
+        <form action="ticket.php" method="post" enctype="multipart/form-data" id="checkoutForm" >
             <h1 id="titulo_form" class="pt-0 pb-5 heading">Checkout</h1>
 
             <div class="form-outline form-floating mb-3">
@@ -199,7 +207,7 @@ include "login2.php";
             <h3 id="final_amount" name="final_amount">0.00</h3>
 
             <input type="hidden" id="coupon_price" name="coupon_price" value="">
-            <input type="hidden" id="total_amount" name="total_amount" value="<?php echo $_POST['total_amount'] ?>">
+            <input type="hidden" id="total_amountl" name="total_amountl">
             <input type="hidden" id="taxesl" name="taxes">
             <input type="hidden" id="package_costl" name="package_cost">
             <input type="hidden" id="final_amountl" name="final_amount">
@@ -271,6 +279,7 @@ include "login2.php";
             var taxes = totalAmount * taxRate;
             taxesElement.innerText = '$' + taxes.toFixed(2);
             updateTaxes();
+            updateFinalAmount();
         }
 
         function updateTaxes() {
@@ -322,11 +331,15 @@ include "login2.php";
                 document.getElementById('checkoutForm').appendChild(hiddenInput);
             });
 
+            var totalAmountElement = document.getElementById('total_amount');
+            var totalAmount = parseFloat(totalAmountElement.innerText.replace('$', '').replace(',', ''));
+
             document.getElementById('coupon_price').value = document.getElementById('coupon_code').value;
-            document.getElementById('total_amount').value = document.getElementById('total_amountl').innerText;
             document.getElementById('taxes').value = document.getElementById('taxesl').innerText;
             document.getElementById('package_cost').value = document.getElementById('package_costl').innerText;
             document.getElementById('final_amount').value = document.getElementById('final_amountl').innerText;
+            document.getElementById('total_amountl').value = totalAmount;
+
 
             document.getElementById('checkoutForm').submit();
         }
@@ -349,3 +362,7 @@ include "login2.php";
 <script src="js/script.js"></script>
 </body>
 </html>
+
+<?php
+    ob_end_flush();
+?>

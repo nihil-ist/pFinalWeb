@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 
 include "login2.php";
 
@@ -10,7 +13,7 @@ if(isset($_SESSION["user"])){
     header('Location: index.php');
 }
 
-$servername = "localhost:33065";
+$servername = "localhost:33066";
 $username = "root";
 $bd = "havenrecords";
 $password = "";
@@ -253,3 +256,6 @@ $dataCDsVinilos_json = json_encode($dataCDsVinilos);
 
 </body>
 </html>
+<?php
+    ob_end_flush();
+?>

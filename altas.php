@@ -1,4 +1,8 @@
 <?php
+    ob_start();
+?>
+
+<?php
 
 include "login2.php";
 
@@ -23,7 +27,7 @@ if(isset($_SESSION["user"])){
             }
         }
     }
-    $nombre_servidor = "localhost:33065";
+    $nombre_servidor = "localhost:33066";
     $nombre_usuario = "root";
     $contraseña = "";
     $nombre_base_datos = "havenrecords";
@@ -189,3 +193,7 @@ $conn->close();
 <script src="js/script.js"></script>
 </body>
 </html>
+
+<?php
+    ob_end_flush();
+?>

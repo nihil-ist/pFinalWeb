@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 
 include "login2.php";
 
@@ -122,4 +125,8 @@ function recoveryAlert(){
   incorrectLogin();
 </script>
 <?php }}
+?>
+
+<?php
+    ob_end_flush();
 ?>

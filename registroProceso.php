@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
     $cuenta = $_POST["cuenta"];
@@ -12,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // El hash a la salt
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $host = "localhost:33065";
+    $host = "localhost:33066";
     $usuario_bd = "root";
     $contraseña_bd = "";
     $nombre_bd = "havenrecords";
@@ -41,4 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: index.php");
     exit();
 }
+?>
+<?php
+    ob_end_flush();
 ?>

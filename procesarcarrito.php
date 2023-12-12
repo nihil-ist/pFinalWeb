@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+?>
+
 <?php 
 session_start();
 
@@ -17,4 +21,8 @@ if ($accion == 'aumentar') {
 
 // Redirige de vuelta a la página del carrito
 header('Location: cart.php');
+?>
+
+<?php
+    ob_end_flush();
 ?>

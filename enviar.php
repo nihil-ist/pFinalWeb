@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -69,3 +72,7 @@ try {
     document.getElementById('myFormContact').submit();
   }
 </script>
+
+<?php
+    ob_end_flush();
+?>

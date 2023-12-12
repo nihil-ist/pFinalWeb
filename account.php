@@ -1,4 +1,8 @@
 <?php
+    ob_start();
+?>
+
+<?php
 
 include "login2.php";
 
@@ -46,3 +50,7 @@ include "login2.php";
 
 </body>
 </html>
+
+<?php
+    ob_end_flush();
+?>

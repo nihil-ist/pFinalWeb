@@ -1,4 +1,7 @@
 <?php
+    ob_start();
+?>
+<?php
 
 include "login2.php";
 
@@ -48,7 +51,7 @@ if(isset($_SESSION["user"])){
 
 <div class="content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <?php
-    $servidor= 'localhost:33065';
+    $servidor= 'localhost:33066';
     $cuenta='root';
     $password='';
     $bd= 'havenrecords';
@@ -140,3 +143,6 @@ if(isset($_SESSION["user"])){
 <script src="js/script.js"></script>
 </body>
 </html>
+<?php
+    ob_end_flush();
+?>

@@ -24,7 +24,9 @@ $cardHolderName = isset($_POST['apellido_m']) ? $_POST['apellido_m'] : '';
 $cvv = isset($_POST['telefono']) ? $_POST['telefono'] : '';
 $creditCard = isset($_POST['credit_card']) ? $_POST['credit_card'] : '';
 
-$totalAmount = isset($_POST['total_amount']) ? floatval($_POST['total_amount']) : 0;
+$totalAmount = isset($_POST['total_amountl']) ? floatval($_POST['total_amountl']) : 0;
+
+
 $taxes = isset($_POST['taxes']) ? floatval($_POST['taxes']) : 0;
 $packageCost = isset($_POST['package_cost']) ? floatval($_POST['package_cost']) : 0;
 $finalAmount = isset($_POST['final_amount']) ? floatval($_POST['final_amount']) : 0;
@@ -107,6 +109,8 @@ $pdf->Cell(0, 10, 'Order Summary:', 0, 1);
 $pdf->SetFont('Arial', '', 12);
 
 $pdf->Cell(0, 10, "Total Amount: $" . number_format($totalAmount, 2), 0, 1);
+// $pdf->Cell(0, 10, "Total Amount: $" . $totalAmount, 0, 1);
+
 $pdf->Cell(0, 10, "Taxes: $" . number_format($taxes, 2), 0, 1);
 $pdf->Cell(0, 10, "Shipping Cost: $" . number_format($packageCost, 2), 0, 1);
 
@@ -225,7 +229,9 @@ foreach ($cartItems as $item) {
     $sql = "UPDATE productos SET existencias=$existenciasNow WHERE nombreProducto='$productName'";
     $result = $conn->query($sql);
 }
-//unset($_SESSION['cart']);
+unset($_SESSION['cart']);
+
+$conn->close();
 
 ?>
 
@@ -273,6 +279,8 @@ foreach ($cartItems as $item) {
     <!-- Add download link -->
     <h1>Alternatively, you can download the PDF file: <a class="fs-1" href="<?php echo $pdfFileName; ?>" download>Download Shopping Ticket (PDF)</a></h1>
     
+    <h1>Also, we have sent you an email with your ticket</h1>
+
 </div>
 
 <?php include "footer.php"?>

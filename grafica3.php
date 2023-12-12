@@ -11,7 +11,7 @@
     // Tu código PHP para conectarte a la base de datos y realizar la consulta aquí...
 
     // Datos para la conexión a la base de datos
-    $servername = "localhost:33065";
+    $servername = "localhost:33066";
     $username = "root";
     $password = "";
     $dbname = "havenrecords";

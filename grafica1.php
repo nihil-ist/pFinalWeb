@@ -10,7 +10,7 @@
 
     <?php
     // Conexión a la base de datos
-    $servername = "localhost:33065";
+    $servername = "localhost:33066";
     $username = "root";
     $password = "";
     $dbname = "havenrecords";

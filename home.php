@@ -157,7 +157,7 @@ if(isset($_POST['submit'])){
 </div>
 </div>
 <?php if(isset($_SESSION["user"])){
-  $servername = "localhost:33065";
+  $servername = "localhost:33066";
   $username = "root";
   $bd = "havenrecords";
   $password = "";
