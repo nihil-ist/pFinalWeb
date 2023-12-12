@@ -54,10 +54,10 @@ if(isset($_POST['submit'])){
     }
 
     //we are gonna set the suscription attribute to 1 since there is  a suscription for this user
-    $servername = "localhost:33066";
-    $username = "root";
-    $bd = "havenrecords";
-    $password = "";
+    $servername = "localhost";
+      $username = "id21662341_root";
+      $password = "iFz5:=h,V@73u~}";
+      $bd = "id21662341_havenrecords";
     
     $conn = new mysqli($servername, $username, $password, $bd);
     
@@ -157,10 +157,10 @@ if(isset($_POST['submit'])){
 </div>
 </div>
 <?php if(isset($_SESSION["user"])){
-  $servername = "localhost:33066";
-  $username = "root";
-  $bd = "havenrecords";
-  $password = "";
+      $servername = "localhost";
+      $username = "id21662341_root";
+      $password = "iFz5:=h,V@73u~}";
+      $bd = "id21662341_havenrecords";
   
   $conn = new mysqli($servername, $username, $password, $bd);
   

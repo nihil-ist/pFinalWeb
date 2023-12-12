@@ -51,11 +51,11 @@ if(isset($_SESSION["user"])){
 
 <div class="content d-flex flex-column justify-content-center align-items-center flex-grow-1">
 <?php
-    $servidor= 'localhost:33066';
-    $cuenta='root';
-    $password='';
-    $bd= 'havenrecords';
-
+        $servidor = "localhost";
+        $cuenta = "id21662341_root";
+        $password = "iFz5:=h,V@73u~}";
+        $bd = "id21662341_havenrecords";
+    
     $rBorrados = false;
 
     $conexion =mysqli_connect($servidor,$cuenta,$password,$bd);

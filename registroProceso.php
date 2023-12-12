@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // El hash a la salt
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $host = "localhost:33066";
-    $usuario_bd = "root";
-    $contraseña_bd = "";
-    $nombre_bd = "havenrecords";
+    $host = "localhost";
+    $usuario_bd = "id21662341_root";
+    $contraseña_bd = "iFz5:=h,V@73u~}";
+    $nombre_bd = "id21662341_havenrecords";
 
     $conexion = new mysqli($host, $usuario_bd, $contraseña_bd, $nombre_bd);
 

@@ -31,10 +31,10 @@
 
 <div class="bg-dark shadow-lg text-center p-5 m-5" style="opacity: 0.85 !important; margin-top: 6% !important;">
 <?php
-    $servidor= 'localhost:33066';
-    $cuenta='root';
-    $password='';
-    $bd= 'havenrecords';
+    $servidor = "localhost";
+    $cuenta = "id21662341_root";
+    $password = "iFz5:=h,V@73u~}";
+    $bd = "id21662341_havenrecords";
 
     $conexion =mysqli_connect($servidor,$cuenta,$password,$bd);
     if(mysqli_connect_errno()){die("Error en la conexion");}

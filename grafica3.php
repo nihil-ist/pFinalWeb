@@ -11,10 +11,10 @@
     // Tu código PHP para conectarte a la base de datos y realizar la consulta aquí...
 
     // Datos para la conexión a la base de datos
-    $servername = "localhost:33066";
-    $username = "root";
-    $password = "";
-    $dbname = "havenrecords";
+    $servername = "localhost";
+    $username = "id21662341_root";
+    $password = "iFz5:=h,V@73u~}";
+    $dbname = "id21662341_havenrecords";
 
     // Crear conexión
     $conn = new mysqli($servername, $username, $password, $dbname);

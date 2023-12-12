@@ -27,10 +27,10 @@ if(isset($_SESSION["user"])){
             }
         }
     }
-    $nombre_servidor = "localhost:33066";
-    $nombre_usuario = "root";
-    $contraseña = "";
-    $nombre_base_datos = "havenrecords";
+    $nombre_servidor = "localhost";
+    $nombre_usuario = "id21662341_root";
+    $contraseña = "iFz5:=h,V@73u~}";
+    $nombre_base_datos = "id21662341_havenrecords";
 
     $conn = new mysqli($nombre_servidor, $nombre_usuario, $contraseña, $nombre_base_datos);
 

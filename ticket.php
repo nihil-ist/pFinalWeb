@@ -205,10 +205,10 @@ function sendEmail($fullName,$emailAddress,$address,$country,$postalCode,$phoneN
         // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
-$servername = "localhost:33066";
-$username = "root";
-$bd = "havenrecords";
-$password = "";
+$servername = "localhost";
+      $username = "id21662341_root";
+      $password = "iFz5:=h,V@73u~}";
+      $bd = "id21662341_havenrecords";
 
 $conn = new mysqli($servername, $username, $password, $bd);
 

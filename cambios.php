@@ -57,10 +57,10 @@ if(isset($_SESSION["user"])){
     
     <form action="update.php" method="post">
     <?php
-        $servidor= 'localhost:33066';
-        $cuenta='root';
-        $password='';
-        $bd= 'havenrecords';
+        $servidor = "localhost";
+        $cuenta = "id21662341_root";
+        $password = "iFz5:=h,V@73u~}";
+        $bd = "id21662341_havenrecords";
         $conexion =mysqli_connect($servidor,$cuenta,$password,$bd);
         if(mysqli_connect_errno()){die("Error en la conexion");}
         $sql_data = "SELECT * FROM productos";

@@ -5,10 +5,10 @@
 
 include "login2.php";
 
-$servername = "localhost:33066";
-$username = "root";
-$bd = "havenrecords";
-$password = "";
+$servername = "localhost";
+      $username = "id21662341_root";
+      $password = "iFz5:=h,V@73u~}";
+      $bd = "id21662341_havenrecords";
 
 $band = 0;
 

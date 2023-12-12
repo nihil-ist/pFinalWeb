@@ -90,7 +90,7 @@ if(!isset($_SESSION['cart'])){
 
             <div class="form-outline form-floating mb-3">
                 <input type="tel" class="text-white form-control bg-transparent" id="tel" name="tel" placeholder="tel" required>
-                <label for="tel" class="form-label text-white bg-transparent">Phone Number:</label>
+                <label for="tel" class="form-label text-white bg-transparent">Phone Number</label>
             </div>
 
             <select id="payment_method" class="py-3 form-select bg-dark text-white mb-3 custom-select" name="payment_method" required>
