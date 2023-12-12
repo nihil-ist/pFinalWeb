@@ -101,3 +101,13 @@ function cartAlert(){
       window.location.href = "login.php";
   });
 }
+
+$(document).ready(function () {
+  $('#payment_method').change(function () {
+      var selectedMethod = $(this).val();
+
+      $('#credit_card_fields, #oxxo_fields').hide();
+
+      $('#' + selectedMethod + '_fields').show();
+  });
+});
