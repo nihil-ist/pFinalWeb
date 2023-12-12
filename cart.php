@@ -2,7 +2,7 @@
 
 include "login2.php";
 
-$servername = "localhost:33065";
+$servername = "localhost";
 $username = "root";
 $bd = "havenrecords";
 $password = "";
@@ -113,8 +113,29 @@ if ($conn->connect_error) {
 
 <div class="text-center mt-5">
   <form action="checkout.php" method="post">
-  <input type="submit" class="btn btn-primary p-3 py-2 fs-3" value="Go to Checkout">
-</form></div>
+  <?php foreach ($_SESSION['cart'] as $idProducto => $cantidad): ?>
+          <?php
+              $consulta = "SELECT * FROM productos WHERE idProducto = ?";
+              $sentencia = $conn->prepare($consulta);
+              $sentencia->bind_param("i", $idProducto);
+              $sentencia->execute();
+              $resultado = $sentencia->get_result();
+              $producto = $resultado->fetch_assoc();
+          ?>
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][id]" value="<?php echo $idProducto; ?>">
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][name]" value="<?php echo $producto['nombreProducto']; ?>">
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][quantity]" value="<?php echo $cantidad; ?>">
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][price]" value="<?php echo $producto['precio']; ?>">
+          <input type="hidden" name="cart_items[<?php echo $idProducto; ?>][total]" value="<?php echo $totalprice; ?>">
+      <?php endforeach; ?>
+      
+      <!-- Hidden input field for the total amount -->
+      <input type="hidden" name="total_amount" value="<?php echo $totalall; ?>">
+
+      <!-- Submit button -->
+      <input type="submit" class="btn btn-primary p-3 py-2 fs-3" value="Go to Checkout">
+  </form>
+</div>
 
 
 <?php } else {?>
