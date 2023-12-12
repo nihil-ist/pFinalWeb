@@ -201,6 +201,32 @@ function sendEmail($fullName,$emailAddress,$address,$country,$postalCode,$phoneN
         // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+$servername = "localhost:33066";
+$username = "root";
+$bd = "havenrecords";
+$password = "";
+
+$conn = new mysqli($servername, $username, $password, $bd);
+
+if ($conn->connect_error) {
+  die("Can't connect to the database: " . $conn->connect_error);
+}
+
+$sql = "UPDATE usuarios SET pais='$country' WHERE cuenta='".$_SESSION['user']."'";
+$result = $conn->query($sql);
+
+foreach ($cartItems as $item) {
+    $productName = $item['name'];
+    $quantity = $item['quantity'];
+    $sql = "SELECT existencias FROM productos WHERE nombreProducto='$productName'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $existenciasNow = $row['existencias'] - $quantity;
+    $sql = "UPDATE productos SET existencias=$existenciasNow WHERE nombreProducto='$productName'";
+    $result = $conn->query($sql);
+}
+//unset($_SESSION['cart']);
+
 ?>
 
 <!DOCTYPE html>	

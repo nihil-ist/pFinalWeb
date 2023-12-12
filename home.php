@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
     }
 
     //we are gonna set the suscription attribute to 1 since there is  a suscription for this user
-    $servername = "localhost:33065";
+    $servername = "localhost:33066";
     $username = "root";
     $bd = "havenrecords";
     $password = "";

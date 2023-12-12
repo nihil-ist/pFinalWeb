@@ -17,6 +17,7 @@ include "login2.php";
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/501c828013.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         td, th{
             padding: 10px;
@@ -212,13 +213,7 @@ include "login2.php";
     
     <script>
         var couponApplied = false;
-
         function applyCoupon() {
-            if (couponApplied) {
-                
-                return;
-            }
-
             var couponCode = document.getElementById('coupon_code').value;
             var totalAmountElement = document.getElementById('total_amount');
             var totalAmount = parseFloat(totalAmountElement.innerText.replace('$', '').replace(',', ''));
@@ -226,17 +221,47 @@ include "login2.php";
             switch (couponCode) {
                 case 'XMAS20':
                     totalAmount *= 0.8; // 20% 
+                    Swal.fire({
+                        icon: "success",
+                        title: "Coupon Applied!",
+                        text: "There will be a discount applied",
+                        background: "url(assets/mcatisb.jpg)",
+                        color: "#fff"
+                    });
                     break;
                 case 'EMAIL10':
+                    totalAmount *= 0.9; // 10% 
+                    Swal.fire({
+                        icon: "success",
+                        title: "Coupon Applied!",
+                        text: "There will be a discount applied",
+                        background: "url(assets/mcatisb.jpg)",
+                        color: "#fff"
+                    });
+                    break;
                 case 'SOCIAL10':
                     totalAmount *= 0.9; // 10% 
+                    Swal.fire({
+                        icon: "success",
+                        title: "Coupon Applied!",
+                        text: "There will be a discount applied",
+                        background: "url(assets/mcatisb.jpg)",
+                        color: "#fff"
+                    });
                     break;
                 default:
+                    Swal.fire({
+                        icon: "error",
+                        title: "Whoops!",
+                        text: "That coupon code doesn't exist",
+                        background: "url(assets/mcatisb.jpg)",
+                        color: "#fff"
+                    });
                     return;
             }
 
-            totalAmountElement.innerText = '$' + totalAmount.toFixed(2);
             couponApplied = true;
+            totalAmountElement.innerText = '$' + totalAmount.toFixed(2);
 
             document.getElementById('coupon_code').disabled = true;
 
@@ -257,6 +282,7 @@ include "login2.php";
             var taxes = totalAmount * taxRate;
             taxesElement.innerText = '$' + taxes.toFixed(2);
             document.getElementById('taxesl').value = taxes.toFixed(2);
+            updatePackageCost();
         }
 
         function updatePackageCost() {
@@ -286,10 +312,6 @@ include "login2.php";
         }
 
         function generateAndOpenPDF() {
-            applyCoupon();
-            updateTaxes();
-            updatePackageCost();
-            updateFinalAmount();
 
             var selectedItems = document.getElementById('checkoutForm').querySelectorAll('[name^="cart_items"]');
             selectedItems.forEach(function(item) {
@@ -301,14 +323,12 @@ include "login2.php";
             });
 
             document.getElementById('coupon_price').value = document.getElementById('coupon_code').value;
-            document.getElementById('total_amount').value = document.getElementById('total_amount').innerText;
-            document.getElementById('taxes').value = document.getElementById('taxes').innerText;
-            document.getElementById('package_cost').value = document.getElementById('package_cost').innerText;
-            document.getElementById('final_amount').value = document.getElementById('final_amount').innerText;
+            document.getElementById('total_amount').value = document.getElementById('total_amountl').innerText;
+            document.getElementById('taxes').value = document.getElementById('taxesl').innerText;
+            document.getElementById('package_cost').value = document.getElementById('package_costl').innerText;
+            document.getElementById('final_amount').value = document.getElementById('final_amountl').innerText;
 
             document.getElementById('checkoutForm').submit();
-
-            // window.open('path/to/generated/ticket.pdf', '_blank');
         }
 
 
